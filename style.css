@@ -1,0 +1,22 @@
+div#Card {
+    background-color: azure;
+    height: 1000px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+div#Banner {
+    text-align: center;
+}
+
+div#QuestionPanel {
+    background-color: yellowgreen;
+    height: 50%;
+    width: 100%;
+}
+
+div#AnswerPanel {
+    background-color: aqua;
+    height: 30%;
+    width: 100%;
+}
