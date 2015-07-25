@@ -9,8 +9,28 @@ var Banner = React.createClass({displayName: "Banner",
 });
 
 var QuestionPanel = React.createClass({displayName: "QuestionPanel",
+
   render: function() {
-    var optionBoxes = [];
+    var optionBoxes;
+    if (this.props.data.optionContainsImage) {
+      //TODO
+
+    } else {
+      optionBoxes = this.props.data.options.map(function (option) {
+        return (
+            React.createElement("div", {className: "optionBox"}, 
+              React.createElement("label", null, 
+                React.createElement("input", {type: "checkbox", 
+                       name: option.optionTag, 
+                       onChange: null}), 
+                React.createElement("span", {className: "optionTag"}, option.optionTag), 
+                React.createElement("span", {className: "optionText"}, option.optionText)
+              )
+            )
+        )
+      });
+    }
+
     return (
         React.createElement("div", {id: "QuestionPanel", data: this.props.data}, 
           React.createElement("div", {id: "questionTag"}, 
@@ -50,18 +70,31 @@ var AnswerPanel = React.createClass({displayName: "AnswerPanel",
 });
 
 var Card = React.createClass({displayName: "Card",
+  getInitialState: function() {
+    return {
+      questionSerial: 0,
+      answerSerial: 0,
+      showAnswer: false
+    };
+  },
+
+  handleClick: function (event) {
+    this.setState({showAnswer: true})
+  },
+
   render: function() {
     return (
-        React.createElement("div", {id: "Card"}, 
+        React.createElement("div", {id: "Card", surveyData: this.props.surveyData}, 
           React.createElement(Banner, null), 
-          React.createElement(QuestionPanel, {data: this.props.questionData}), 
-          React.createElement(AnswerPanel, {data: this.props.answerData})
+          React.createElement(QuestionPanel, {data: this.props.surveyData[this.state.questionSerial]}), 
+          this.state.showAnswer ? React.createElement(AnswerPanel, {data: this.props.surveyData[this.state.answerSerial]}) : null, 
+          React.createElement("button", {onClick: this.handleClick}, "Show Answer")
         )
     );
   }
 });
 
 React.render(
-    React.createElement(Card, {questionData: app.survey[0], answerData: app.survey[0]}),
+    React.createElement(Card, {surveyData: app.survey}),
     document.getElementById('content')
 );

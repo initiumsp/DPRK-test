@@ -9,8 +9,28 @@ var Banner = React.createClass({
 });
 
 var QuestionPanel = React.createClass({
+
   render: function() {
-    var optionBoxes = [];
+    var optionBoxes;
+    if (this.props.data.optionContainsImage) {
+      //TODO
+
+    } else {
+      optionBoxes = this.props.data.options.map(function (option) {
+        return (
+            <div className="optionBox">
+              <label>
+                <input type="checkbox"
+                       name={option.optionTag}
+                       onChange={null} />
+                <span className="optionTag">{option.optionTag}</span>
+                <span className="optionText">{option.optionText}</span>
+              </label>
+            </div>
+        )
+      });
+    }
+
     return (
         <div id="QuestionPanel" data={this.props.data}>
           <div id="questionTag">
@@ -50,18 +70,31 @@ var AnswerPanel = React.createClass({
 });
 
 var Card = React.createClass({
+  getInitialState: function() {
+    return {
+      questionSerial: 0,
+      answerSerial: 0,
+      showAnswer: false
+    };
+  },
+
+  handleClick: function (event) {
+    this.setState({showAnswer: true})
+  },
+
   render: function() {
     return (
-        <div id="Card">
+        <div id="Card" surveyData={this.props.surveyData}>
           <Banner />
-          <QuestionPanel data={this.props.questionData} />
-          <AnswerPanel data={this.props.answerData} />
+          <QuestionPanel data={this.props.surveyData[this.state.questionSerial]} />
+          {this.state.showAnswer ? <AnswerPanel data={this.props.surveyData[this.state.answerSerial]} /> : null}
+          <button onClick={this.handleClick}>Show Answer</button>
         </div>
     );
   }
 });
 
 React.render(
-    <Card questionData={app.survey[0]} answerData={app.survey[0]} />,
+    <Card surveyData={app.survey} />,
     document.getElementById('content')
 );
