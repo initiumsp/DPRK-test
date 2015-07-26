@@ -12,12 +12,23 @@ var QuestionPanel = React.createClass({
 
   handleCheckboxClick: function(optionTag, event) {
     nkoreaTest.Card.setState({showAnswer: true});
-    //nkoreaTest.Card.setState(
-    //    {questionSerial: nkoreaTest.Card.state.questionSerial + 1,
-    //     answerSerial: nkoreaTest.Card.state.answerSerial + 1
-    //    }
-    //);
-    event.target.checked = false; // Otherwise the option remains checked in the next question
+
+    function moveToNextQuestion(checkbox) {
+      nkoreaTest.Card.setState(
+          {questionSerial: nkoreaTest.Card.state.questionSerial + 1,
+            answerSerial: nkoreaTest.Card.state.answerSerial + 1,
+            showAnswer: false
+          }
+      );
+      checkbox.checked = false; // Otherwise the option remains checked in the next question
+    }
+    setTimeout(function(checkbox){
+          return (function () {
+                moveToNextQuestion(checkbox);
+              }
+          )
+        }(event.target),
+        4000)
   },
 
   render: function() {
@@ -30,6 +41,20 @@ var QuestionPanel = React.createClass({
     var optionBoxes;
     if (this.props.data.optionContainsImage) {
       // TODO
+      optionBoxes = this.props.data.options.map(function (option) {
+        return (
+            <div className="optionBox" key={option.optionTag}>
+              <label>
+                <input type="checkbox"
+                       name={option.optionTag}
+                       onChange={this.handleCheckboxClick.bind(this, option.optionTag)}
+                    />
+                <span className="optionTag">{option.optionTag}</span>
+                <span className="optionText">{option.optionText}</span>
+              </label>
+            </div>
+        )
+      }, this);
     } else {
       optionBoxes = this.props.data.options.map(function (option) {
         return (

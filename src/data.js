@@ -1,5 +1,6 @@
 var nkoreaTest = {
-  codeName: "DPRK-test"
+  codeName: "DPRK-test",
+  totalScore: 0
 };
 
 nkoreaTest.survey = [

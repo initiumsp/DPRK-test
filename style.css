@@ -1,13 +1,25 @@
 body {
     margin: 0;
-    font-size: 30px;
+    font-size: 2em;
+    width: 100%;
+    height: 100%;
+}
+
+div#questionTag {
+    font-size: 120%;
+    font-weight: 700;
+    margin-bottom: 1em;
 }
 
 div#Card {
-    background-color: azure;
-    height: 1000px;
-    width: 600px;
+    background-color: #FDD;
     margin: 0 auto;
+}
+
+@media (min-device-width: 1036px) {
+    div#Card {
+        width: 1036px;
+    }
 }
 
 div#Banner {
@@ -15,14 +27,23 @@ div#Banner {
 }
 
 div#QuestionPanel {
-    background-color: yellowgreen;
-    height: 50%;
+    background-color: navajowhite;
+    height: 60%;
+    padding: 0.5em auto;
     width: 100%;
 }
 
 div#AnswerPanel {
-    background-color: aqua;
+    background-color: #DAEFFF;
     height: 30%;
     width: 100%;
+    padding: 0.5em auto;
 }
 
+div.optionBox {
+    margin-top: 1.5em;
+}
+
+span.optionTag {
+    margin-right: 0.5em;
+}
