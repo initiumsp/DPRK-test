@@ -10,8 +10,29 @@ var Banner = React.createClass({displayName: "Banner",
 
 var QuestionPanel = React.createClass({displayName: "QuestionPanel",
 
-  handleCheckboxClick: function(optionTag, event) {
+  handleCheckboxClick: function(clickedOptionTag, event) {
+
+    // All questions answered: display total score
+    if (nkoreaTest.Card.state.questionSerial >= nkoreaTest.survey.length - 1) {
+      React.render(
+          React.createElement(ScorePage, null),
+          document.getElementById('content')
+      );
+    }
+
+    // Guard against multiple clicks
+    if (!nkoreaTest.checkboxActive) {
+      return
+    }
+
+    nkoreaTest.checkboxActive = false;
+
+    //Show the answer
     nkoreaTest.Card.setState({showAnswer: true});
+
+    if (clickedOptionTag === this.props.data.correctOptionTag) {
+      nkoreaTest.totalScore += nkoreaTest.scorePerQuestion;
+    }
 
     function moveToNextQuestion(checkbox) {
       nkoreaTest.Card.setState(
@@ -21,6 +42,7 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
           }
       );
       checkbox.checked = false; // Otherwise the option remains checked in the next question
+      nkoreaTest.checkboxActive = true;
     }
     setTimeout(function(checkbox){
           return (function () {
@@ -28,12 +50,12 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
               }
           )
         }(event.target),
-        4000)
+        100)
   },
 
   render: function() {
 
-    if (nkoreaTest.Card.answerSerial >= nkoreaTest.survey.length) {
+    if (nkoreaTest.Card.state.answerSerial >= nkoreaTest.survey.length) {
       return;
       // TODO
     }
@@ -129,6 +151,18 @@ var Card = React.createClass({displayName: "Card",
               React.createElement(AnswerPanel, {data: this.props.surveyData[this.state.answerSerial]}) :
               null
           
+        )
+    );
+  }
+});
+
+var ScorePage = React.createClass({displayName: "ScorePage",
+  render: function() {
+    var comment = nkoreaTest.scoreComments[nkoreaTest.totalScore.toString()];
+    return (
+        React.createElement("div", {id: "ScorePage"}, 
+          React.createElement("h1", null, "你的總分是：", nkoreaTest.totalScore), 
+          React.createElement("p", null, comment)
         )
     );
   }

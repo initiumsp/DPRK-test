@@ -1,6 +1,8 @@
 var nkoreaTest = {
   codeName: "DPRK-test",
-  totalScore: 0
+  totalScore: 0,
+  scorePerQuestion: 20,
+  checkboxActive: true
 };
 
 nkoreaTest.survey = [
@@ -75,3 +77,12 @@ nkoreaTest.survey = [
 ];
 
 nkoreaTest.answerLabel = "答案:";
+
+nkoreaTest.scoreComments = {
+"0": "报告校长！这里发现敌国卧底学童一枚！",
+"20": "是不是刚从水深火热的美国逃回来？伟大祖国不会放弃你，明年请再来报考！",
+"40": "请表演歌伴舞《金正恩脚步擦擦擦》，若声情并茂可加20分破格录取。",
+"60": "平壤金太阳小学欢迎你！请铭记伟大领袖精神指引，一路向前擦擦擦！",
+"80": "你已进入开学典礼候选升旗手名单，考试结束后请在操场旗杆下集合。",
+"100": "请准备一套新校服，开学典礼上，伟大领袖金正恩将会亲自为你颁发录取通知书！"
+};
