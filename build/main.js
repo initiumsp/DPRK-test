@@ -50,7 +50,7 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
               }
           )
         }(event.target),
-        100)
+        2000)
   },
 
   render: function() {
@@ -85,10 +85,10 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
                 React.createElement("input", {type: "checkbox", 
                        name: option.optionTag, 
                        onChange: this.handleCheckboxClick.bind(this, option.optionTag)}
-                ), 
-                React.createElement("span", {className: "optionTag"}, option.optionTag), 
-                React.createElement("span", {className: "optionText"}, option.optionText)
-              )
+                )
+              ), 
+              React.createElement("span", {className: "optionTag"}, option.optionTag), 
+              React.createElement("span", {className: "optionText"}, option.optionText)
             )
         )
       }, this);

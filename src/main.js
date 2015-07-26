@@ -50,7 +50,7 @@ var QuestionPanel = React.createClass({
               }
           )
         }(event.target),
-        100)
+        2000)
   },
 
   render: function() {
@@ -86,9 +86,9 @@ var QuestionPanel = React.createClass({
                        name={option.optionTag}
                        onChange={this.handleCheckboxClick.bind(this, option.optionTag)}
                 />
-                <span className="optionTag">{option.optionTag}</span>
-                <span className="optionText">{option.optionText}</span>
               </label>
+              <span className="optionTag">{option.optionTag}</span>
+              <span className="optionText">{option.optionText}</span>
             </div>
         )
       }, this);

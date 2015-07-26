@@ -6,15 +6,22 @@ body {
     height: 100%;
 }
 
-div#questionTag {
-    font-size: 120%;
-    font-weight: 700;
-    margin-bottom: 1em;
+input[type=checkbox] {
+    transform: scale(2.0);
+    -webkit-transform: scale(2.0);
+    vertical-align: text-top;
+    margin: 1em;
 }
 
 div#Card {
     background-color: #FDD;
     margin: 0 auto;
+}
+
+div#questionTag {
+    font-size: 120%;
+    font-weight: 700;
+    margin-bottom: 1em;
 }
 
 @media (min-device-width: 1036px) {
