@@ -1,8 +1,8 @@
-var app = {
-  codeName: "DPRK-test",
+var nkoreaTest = {
+  codeName: "DPRK-test"
 };
 
-app.survey = [
+nkoreaTest.survey = [
   {
     "serial": 0,
     "questionTag": "數學題",
@@ -73,4 +73,4 @@ app.survey = [
   }
 ];
 
-app.answerLabel = "答案:";
+nkoreaTest.answerLabel = "答案:";

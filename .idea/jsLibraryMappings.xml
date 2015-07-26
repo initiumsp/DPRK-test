@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{live, react-0.13.3}" />
+    <file url="file://$PROJECT_DIR$" libraries="{DPRK-test node_modules}" />
+    <file url="PROJECT" libraries="{live, react-0.13.3, react-with-addons-0.13.3}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
   </component>
 </project>

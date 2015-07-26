@@ -10,25 +10,41 @@ var Banner = React.createClass({
 
 var QuestionPanel = React.createClass({
 
+  handleCheckboxClick: function(optionTag, event) {
+    nkoreaTest.Card.setState({showAnswer: true});
+    //nkoreaTest.Card.setState(
+    //    {questionSerial: nkoreaTest.Card.state.questionSerial + 1,
+    //     answerSerial: nkoreaTest.Card.state.answerSerial + 1
+    //    }
+    //);
+    event.target.checked = false; // Otherwise the option remains checked in the next question
+  },
+
   render: function() {
+
+    if (nkoreaTest.Card.answerSerial >= nkoreaTest.survey.length) {
+      return;
+      // TODO
+    }
+
     var optionBoxes;
     if (this.props.data.optionContainsImage) {
-      //TODO
-
+      // TODO
     } else {
       optionBoxes = this.props.data.options.map(function (option) {
         return (
-            <div className="optionBox">
+            <div className="optionBox" key={option.optionTag}>
               <label>
                 <input type="checkbox"
                        name={option.optionTag}
-                       onChange={null} />
+                       onChange={this.handleCheckboxClick.bind(this, option.optionTag)}
+                />
                 <span className="optionTag">{option.optionTag}</span>
                 <span className="optionText">{option.optionText}</span>
               </label>
             </div>
         )
-      });
+      }, this);
     }
 
     return (
@@ -50,11 +66,11 @@ var QuestionPanel = React.createClass({
 var AnswerPanel = React.createClass({
   render: function() {
     return (
-        <div id="AnswerPanel" data={this.props.data}>
+        <div id="AnswerPanel" data={this.props.data} key={0}>
           <div className="answerBox">
             <div className="answerInnerBox">
               <span className="answerLabel">
-                {app.answerLabel}
+                {nkoreaTest.answerLabel}
               </span>
               <span className="answerTag">
                 {this.props.data.correctOptionTag}
@@ -78,23 +94,22 @@ var Card = React.createClass({
     };
   },
 
-  handleClick: function (event) {
-    this.setState({showAnswer: true})
-  },
-
   render: function() {
+    nkoreaTest.Card = this;
     return (
         <div id="Card" surveyData={this.props.surveyData}>
           <Banner />
           <QuestionPanel data={this.props.surveyData[this.state.questionSerial]} />
-          {this.state.showAnswer ? <AnswerPanel data={this.props.surveyData[this.state.answerSerial]} /> : null}
-          <button onClick={this.handleClick}>Show Answer</button>
+          {this.state.showAnswer ?
+              <AnswerPanel data={this.props.surveyData[this.state.answerSerial]}/> :
+              null
+          }
         </div>
     );
   }
 });
 
 React.render(
-    <Card surveyData={app.survey} />,
+    <Card surveyData={nkoreaTest.survey} />,
     document.getElementById('content')
 );

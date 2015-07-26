@@ -10,25 +10,41 @@ var Banner = React.createClass({displayName: "Banner",
 
 var QuestionPanel = React.createClass({displayName: "QuestionPanel",
 
+  handleCheckboxClick: function(optionTag, event) {
+    nkoreaTest.Card.setState({showAnswer: true});
+    //nkoreaTest.Card.setState(
+    //    {questionSerial: nkoreaTest.Card.state.questionSerial + 1,
+    //     answerSerial: nkoreaTest.Card.state.answerSerial + 1
+    //    }
+    //);
+    event.target.checked = false; // Otherwise the option remains checked in the next question
+  },
+
   render: function() {
+
+    if (nkoreaTest.Card.answerSerial >= nkoreaTest.survey.length) {
+      return;
+      // TODO
+    }
+
     var optionBoxes;
     if (this.props.data.optionContainsImage) {
-      //TODO
-
+      // TODO
     } else {
       optionBoxes = this.props.data.options.map(function (option) {
         return (
-            React.createElement("div", {className: "optionBox"}, 
+            React.createElement("div", {className: "optionBox", key: option.optionTag}, 
               React.createElement("label", null, 
                 React.createElement("input", {type: "checkbox", 
                        name: option.optionTag, 
-                       onChange: null}), 
+                       onChange: this.handleCheckboxClick.bind(this, option.optionTag)}
+                ), 
                 React.createElement("span", {className: "optionTag"}, option.optionTag), 
                 React.createElement("span", {className: "optionText"}, option.optionText)
               )
             )
         )
-      });
+      }, this);
     }
 
     return (
@@ -50,11 +66,11 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
 var AnswerPanel = React.createClass({displayName: "AnswerPanel",
   render: function() {
     return (
-        React.createElement("div", {id: "AnswerPanel", data: this.props.data}, 
+        React.createElement("div", {id: "AnswerPanel", data: this.props.data, key: 0}, 
           React.createElement("div", {className: "answerBox"}, 
             React.createElement("div", {className: "answerInnerBox"}, 
               React.createElement("span", {className: "answerLabel"}, 
-                app.answerLabel
+                nkoreaTest.answerLabel
               ), 
               React.createElement("span", {className: "answerTag"}, 
                 this.props.data.correctOptionTag
@@ -78,23 +94,22 @@ var Card = React.createClass({displayName: "Card",
     };
   },
 
-  handleClick: function (event) {
-    this.setState({showAnswer: true})
-  },
-
   render: function() {
+    nkoreaTest.Card = this;
     return (
         React.createElement("div", {id: "Card", surveyData: this.props.surveyData}, 
           React.createElement(Banner, null), 
           React.createElement(QuestionPanel, {data: this.props.surveyData[this.state.questionSerial]}), 
-          this.state.showAnswer ? React.createElement(AnswerPanel, {data: this.props.surveyData[this.state.answerSerial]}) : null, 
-          React.createElement("button", {onClick: this.handleClick}, "Show Answer")
+          this.state.showAnswer ?
+              React.createElement(AnswerPanel, {data: this.props.surveyData[this.state.answerSerial]}) :
+              null
+          
         )
     );
   }
 });
 
 React.render(
-    React.createElement(Card, {surveyData: app.survey}),
+    React.createElement(Card, {surveyData: nkoreaTest.survey}),
     document.getElementById('content')
 );
