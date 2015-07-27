@@ -1,8 +1,0 @@
-{
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "devDependencies": {
-    "react": "^0.13.3"
-  }
-}
