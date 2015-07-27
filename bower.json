@@ -2,7 +2,7 @@
   "name": "dprk-test",
   "version": "0.0.0",
   "dependencies": {
-    "react": "~0.5.1"
+    "react": "~0.13.2"
   },
   "devDependencies": {
     "chai": "~3.2.0",
