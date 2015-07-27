@@ -12,6 +12,12 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
 
   handleCheckboxClick: function(clickedOptionTag, event) {
 
+    // Guard against multiple clicks
+    if (!nkoreaTest.checkboxActive) { return }
+    nkoreaTest.checkboxActive = false;
+
+    nkoreaTest.Card.state.chosenOptionTag = clickedOptionTag;
+
     // All questions answered: display total score
     if (nkoreaTest.Card.state.questionSerial >= nkoreaTest.survey.length - 1) {
       React.render(
@@ -20,13 +26,6 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
       );
     }
 
-    // Guard against multiple clicks
-    if (!nkoreaTest.checkboxActive) {
-      return
-    }
-
-    nkoreaTest.checkboxActive = false;
-
     //Show the answer
     nkoreaTest.Card.setState({showAnswer: true});
 
@@ -34,23 +33,33 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
       nkoreaTest.totalScore += nkoreaTest.scorePerQuestion;
     }
 
-    function moveToNextQuestion(checkbox) {
-      nkoreaTest.Card.setState(
-          {questionSerial: nkoreaTest.Card.state.questionSerial + 1,
-            answerSerial: nkoreaTest.Card.state.answerSerial + 1,
-            showAnswer: false
+  },
+
+  getCorrectnessSign: function(optionTag) {
+      // Only show correctness sign after the chosen option
+      if (optionTag !== nkoreaTest.Card.state.chosenOptionTag) { return '' }
+      var correctOption = nkoreaTest.survey[nkoreaTest.Card.state.questionSerial].correctOptionTag;
+      var sign, colour, i;
+      if (nkoreaTest.Card.state.chosenOptionTag === null) {
+          sign = '';
+      } else if (nkoreaTest.Card.state.chosenOptionTag === correctOption) {
+          sign = '✓';
+      } else {
+          sign = '✕';
+      }
+
+      //Set color
+      var correctnessSignDOMNodes = document.getElementsByClassName('CorrectnessSign');
+      if (sign === '✓') {
+          for (i=0; i<correctnessSignDOMNodes.length; i+=1) {
+              correctnessSignDOMNodes[i].className = 'CorrectnessSign CorrectnessSign-correct'
           }
-      );
-      checkbox.checked = false; // Otherwise the option remains checked in the next question
-      nkoreaTest.checkboxActive = true;
-    }
-    setTimeout(function(checkbox){
-          return (function () {
-                moveToNextQuestion(checkbox);
-              }
-          )
-        }(event.target),
-        2000)
+      } else if (sign === '✕') {
+          for (i=0; i<correctnessSignDOMNodes.length; i+=1) {
+              correctnessSignDOMNodes[i].className = 'CorrectnessSign CorrectnessSign-wrong'
+          }
+      }
+      return sign;
   },
 
   render: function() {
@@ -62,36 +71,40 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
 
     var optionBoxes;
     if (this.props.data.optionContainsImage) {
-      // TODO
-      optionBoxes = this.props.data.options.map(function (option) {
-        return (
-            React.createElement("div", {className: "optionBox", key: option.optionTag}, 
-              React.createElement("label", null, 
-                React.createElement("input", {type: "checkbox", 
-                       name: option.optionTag, 
-                       onChange: this.handleCheckboxClick.bind(this, option.optionTag)}
-                    ), 
-                React.createElement("span", {className: "optionTag"}, option.optionTag), 
-                React.createElement("span", {className: "optionText"}, option.optionText)
-              )
-            )
-        )
-      }, this);
-    } else {
-      optionBoxes = this.props.data.options.map(function (option) {
-        return (
-            React.createElement("div", {className: "optionBox", key: option.optionTag}, 
-              React.createElement("label", null, 
-                React.createElement("input", {type: "checkbox", 
-                       name: option.optionTag, 
-                       onChange: this.handleCheckboxClick.bind(this, option.optionTag)}
+      // TODO: special layout for imaged stuff
+        optionBoxes = this.props.data.options.map(function (option) {
+            return (
+                React.createElement("div", {className: "optionBox", key: option.optionTag}, 
+                    React.createElement("label", null, 
+                        React.createElement("input", {type: "checkbox", 
+                               name: option.optionTag, 
+                               onChange: this.handleCheckboxClick.bind(this, option.optionTag), 
+                               className: "checkbox"}
+                            ), 
+                        React.createElement("span", {className: "optionTag"}, option.optionTag), 
+                        React.createElement("span", {className: "optionText"}, option.optionText), 
+                        React.createElement("span", {className: "CorrectnessSign"}, this.getCorrectnessSign(option.optionTag))
+                    )
                 )
-              ), 
-              React.createElement("span", {className: "optionTag"}, option.optionTag), 
-              React.createElement("span", {className: "optionText"}, option.optionText)
             )
-        )
-      }, this);
+        }, this);
+    } else {
+        optionBoxes = this.props.data.options.map(function (option) {
+            return (
+                React.createElement("div", {className: "optionBox", key: option.optionTag}, 
+                    React.createElement("label", null, 
+                        React.createElement("input", {type: "checkbox", 
+                               name: option.optionTag, 
+                               onChange: this.handleCheckboxClick.bind(this, option.optionTag), 
+                               className: "checkbox"}
+                            ), 
+                        React.createElement("span", {className: "optionTag"}, option.optionTag), 
+                        React.createElement("span", {className: "optionText"}, option.optionText), 
+                        React.createElement("span", {className: "CorrectnessSign"}, this.getCorrectnessSign(option.optionTag))
+                    )
+                )
+            )
+        }, this);
     }
 
     return (
@@ -111,6 +124,26 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
 });
 
 var AnswerPanel = React.createClass({displayName: "AnswerPanel",
+
+  handleNextButtonClick: function (event) {
+      //Show the next question
+      nkoreaTest.Card.setState({
+            questionSerial: nkoreaTest.Card.state.questionSerial + 1,
+            answerSerial: nkoreaTest.Card.state.answerSerial + 1,
+            showAnswer: false
+          }
+      );
+
+      //Uncheck all checkboxes
+      var checkboxes = document.getElementsByClassName("checkbox");
+      for (var i=0; i<checkboxes.length; i+=1) {
+          checkboxes[i].checked = false;
+      }
+      nkoreaTest.Card.state.chosenOptionTag = null;
+
+      nkoreaTest.checkboxActive = true;
+  },
+
   render: function() {
     return (
         React.createElement("div", {id: "AnswerPanel", data: this.props.data, key: 0}, 
@@ -125,7 +158,8 @@ var AnswerPanel = React.createClass({displayName: "AnswerPanel",
             )
           ), 
           React.createElement("div", {className: "ExplanationBox"}, 
-            this.props.data.ExplanationText
+            this.props.data.ExplanationText, 
+            React.createElement("button", {id: "next", onClick: this.handleNextButtonClick}, " ", nkoreaTest.nextButtonLabel, " ")
           )
         )
     );
@@ -137,7 +171,8 @@ var Card = React.createClass({displayName: "Card",
     return {
       questionSerial: 0,
       answerSerial: 0,
-      showAnswer: false
+      showAnswer: false,
+      chosenOptionTag: null
     };
   },
 
@@ -146,9 +181,11 @@ var Card = React.createClass({displayName: "Card",
     return (
         React.createElement("div", {id: "Card", surveyData: this.props.surveyData}, 
           React.createElement(Banner, null), 
-          React.createElement(QuestionPanel, {data: this.props.surveyData[this.state.questionSerial]}), 
+          React.createElement(QuestionPanel, {data: this.props.surveyData[this.state.questionSerial]}
+          ), 
           this.state.showAnswer ?
-              React.createElement(AnswerPanel, {data: this.props.surveyData[this.state.answerSerial]}) :
+              React.createElement(AnswerPanel, {data: this.props.surveyData[this.state.answerSerial]}
+              ) :
               null
           
         )

@@ -77,6 +77,7 @@ nkoreaTest.survey = [
 ];
 
 nkoreaTest.answerLabel = "答案:";
+nkoreaTest.nextButtonLabel = "Next";
 
 nkoreaTest.scoreComments = {
 "0": "报告校长！这里发现敌国卧底学童一枚！",

@@ -85,3 +85,15 @@ div.optionBox {
 span.optionTag {
     margin-right: 0.5em;
 }
+
+span.CorrectnessSign-correct {
+    color: green;
+}
+
+span.CorrectnessSign-wrong {
+    color: darkred;
+}
+
+button#next {
+    font-size: 1em;
+}
