@@ -1,0 +1,11 @@
+{
+  "name": "dprk-test",
+  "version": "0.0.0",
+  "dependencies": {
+    "react": "~0.5.1"
+  },
+  "devDependencies": {
+    "chai": "~3.2.0",
+    "mocha": "~2.2.5"
+  }
+}
