@@ -16,7 +16,8 @@ nkoreaTest.text = {
   shareHint: '分，你們誰能打贏我？',
   fulltextRecommendation: '點擊閱讀脫北青年獨家專訪，看一個社會價值重塑、青年尋找自我的現代朝鮮。文章鏈接：',
   facebookShareButtonText: '分享到Facebook',
-  ShareToWeiboText: '分享到新浪微博'
+  ShareToWeiboText: '分享到新浪微博',
+  lastButtonLabel: 'Show Me the Result!'
 };
 
 nkoreaTest.survey = [{

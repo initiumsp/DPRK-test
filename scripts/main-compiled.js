@@ -25,17 +25,14 @@ var QuestionPanel = React.createClass({
 
         nkoreaTest.Card.state.chosenOptionTag = clickedOptionTag;
 
-        // All questions answered: display total score
-        if (nkoreaTest.Card.state.questionSerial >= nkoreaTest.survey.length - 1) {
-            React.render(React.createElement(ScorePage, null), document.getElementById("content"));
-        }
-
         //Show the answer
         nkoreaTest.Card.setState({ showAnswer: true });
 
         if (clickedOptionTag === this.props.data.correctOptionTag) {
             nkoreaTest.totalScore += nkoreaTest.scorePerQuestion;
         }
+
+        // All questions answered: display total score
     },
 
     getCorrectnessSign: function getCorrectnessSign(optionTag) {
@@ -173,6 +170,16 @@ var AnswerPanel = React.createClass({
             showAnswer: false
         });
 
+        if (nkoreaTest.Card.state.questionSerial === nkoreaTest.survey.length - 2) {
+            nkoreaTest.Card.setState({
+                lastQuestion: true
+            });
+        }
+
+        if (nkoreaTest.Card.state.questionSerial >= nkoreaTest.survey.length - 1) {
+            React.render(React.createElement(ScorePage, null), document.getElementById("content"));
+        }
+
         //Uncheck all checkboxes
         var checkboxes = document.getElementsByClassName("checkbox");
         for (var i = 0; i < checkboxes.length; i += 1) {
@@ -213,9 +220,7 @@ var AnswerPanel = React.createClass({
                 React.createElement(
                     "button",
                     { id: "next", onClick: this.handleNextButtonClick },
-                    " ",
-                    nkoreaTest.text.nextButtonLabel,
-                    " "
+                    nkoreaTest.Card.state.lastQuestion ? nkoreaTest.text.lastButtonLabel : nkoreaTest.text.nextButtonLabel
                 )
             )
         );
@@ -230,7 +235,8 @@ var Card = React.createClass({
             questionSerial: 0,
             answerSerial: 0,
             showAnswer: false,
-            chosenOptionTag: null
+            chosenOptionTag: null,
+            lastQuestion: false
         };
     },
 
