@@ -209,6 +209,7 @@ var AnswerPanel = React.createClass({
                 "div",
                 { className: "ExplanationBox" },
                 this.props.data.ExplanationText,
+                React.createElement("br", null),
                 React.createElement(
                     "button",
                     { id: "next", onClick: this.handleNextButtonClick },
@@ -252,12 +253,15 @@ var ScorePage = React.createClass({
 
     shareToFacebook: function shareToFacebook() {
         FB.ui({
-            id: "743206445788490",
             method: "share",
             description: nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
             picture: "https://6547ecff.ngrok.io/img/screenshot.png",
             href: "http://dprk-test.initiumdata.com/"
         }, function (response) {});
+    },
+
+    shareToWeibo: function shareToWeibo() {
+        console.log("hehe");
     },
 
     render: function render() {
@@ -282,13 +286,20 @@ var ScorePage = React.createClass({
                     className: "Facebook-Share-btn",
                     onClick: this.shareToFacebook },
                 nkoreaTest.text.facebookShareButtonText
+            ),
+            React.createElement(
+                "button",
+                {
+                    className: "Weibo-Share-btn",
+                    onClick: this.shareToWeibo },
+                nkoreaTest.text.ShareToWeiboText
             )
         );
     }
 });
 
-React.render(React.createElement(Card, { surveyData: nkoreaTest.survey }),
-//<ScorePage />,
-document.getElementById("content"));
+React.render(
+//<Card surveyData={nkoreaTest.survey} />,
+React.createElement(ScorePage, null), document.getElementById("content"));
 
 //# sourceMappingURL=main-compiled.js.map

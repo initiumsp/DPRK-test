@@ -12,7 +12,8 @@ nkoreaTest.text = {
   nextButtonLabel: "Next",
   scoreDescription: "我在朝鮮入學考試得分是",
   shareHint: "，你也來試試吧！",
-  facebookShareButtonText: "分享到Facebook"
+  facebookShareButtonText: "分享到Facebook",
+  ShareToWeiboText: "分享到新浪微博"
 };
 
 nkoreaTest.survey = [{
