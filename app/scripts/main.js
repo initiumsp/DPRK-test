@@ -256,7 +256,7 @@ var ScorePage = React.createClass({
 });
 
 React.render(
-    //<Card surveyData={nkoreaTest.survey} />,
-    <ScorePage />,
+    <Card surveyData={nkoreaTest.survey} />,
+    //<ScorePage />,
     document.getElementById('content')
 );
