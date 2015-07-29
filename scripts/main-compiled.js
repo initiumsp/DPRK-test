@@ -196,7 +196,7 @@ var AnswerPanel = React.createClass({
                     React.createElement(
                         "span",
                         { className: "answerLabel" },
-                        nkoreaTest.answerLabel
+                        nkoreaTest.text.answerLabel
                     ),
                     React.createElement(
                         "span",
@@ -213,7 +213,7 @@ var AnswerPanel = React.createClass({
                     "button",
                     { id: "next", onClick: this.handleNextButtonClick },
                     " ",
-                    nkoreaTest.nextButtonLabel,
+                    nkoreaTest.text.nextButtonLabel,
                     " "
                 )
             )
@@ -254,6 +254,8 @@ var ScorePage = React.createClass({
         FB.ui({
             id: "743206445788490",
             method: "share",
+            description: nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
+            picture: "https://6547ecff.ngrok.io/img/screenshot.png",
             href: "http://dprk-test.initiumdata.com/"
         }, function (response) {});
     },
@@ -276,15 +278,17 @@ var ScorePage = React.createClass({
             ),
             React.createElement(
                 "button",
-                { onClick: this.shareToFacebook },
-                "Share to Facebook"
+                {
+                    className: "Facebook-Share-btn",
+                    onClick: this.shareToFacebook },
+                nkoreaTest.text.facebookShareButtonText
             )
         );
     }
 });
 
-React.render(
-//<Card surveyData={nkoreaTest.survey} />,
-React.createElement(ScorePage, null), document.getElementById("content"));
+React.render(React.createElement(Card, { surveyData: nkoreaTest.survey }),
+//<ScorePage />,
+document.getElementById("content"));
 
 //# sourceMappingURL=main-compiled.js.map

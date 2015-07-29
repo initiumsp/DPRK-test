@@ -7,6 +7,14 @@ var nkoreaTest = {
   checkboxActive: true
 };
 
+nkoreaTest.text = {
+  answerLabel: "答案:",
+  nextButtonLabel: "Next",
+  scoreDescription: "我在朝鮮入學考試得分是",
+  shareHint: "，你也來試試吧！",
+  facebookShareButtonText: "分享到Facebook"
+};
+
 nkoreaTest.survey = [{
   "serial": 0,
   "questionTag": "數學題",
@@ -48,9 +56,6 @@ nkoreaTest.survey = [{
   "correctOptionTag": "D",
   "ExplanationText": "解析：2010年，朝鮮政府開始推廣《腳步》，暗示金正恩將接班。隨著其地位確認，如今全國都要學唱。《將軍與水兵》是歌手玄松月1995年的成名曲。《沒有你就沒有祖國》為金正日主題曲。《春天年年到人間》是上世紀70年代電影《賣花姑娘》插曲。"
 }];
-
-nkoreaTest.answerLabel = "答案:";
-nkoreaTest.nextButtonLabel = "Next";
 
 nkoreaTest.scoreComments = {
   "0": "报告校长！这里发现敌国卧底学童一枚！",
