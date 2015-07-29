@@ -296,13 +296,6 @@ var ScorePage = React.createClass({
             React.createElement(
                 "button",
                 {
-                    className: "Facebook-Share-btn",
-                    onClick: this.shareToFacebookViaSharer },
-                nkoreaTest.text.facebookShareButtonText + " Sharer"
-            ),
-            React.createElement(
-                "button",
-                {
                     className: "Weibo-Share-btn",
                     onClick: this.shareToWeibo },
                 nkoreaTest.text.ShareToWeiboText
