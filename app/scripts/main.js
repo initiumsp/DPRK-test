@@ -196,23 +196,39 @@ var Card = React.createClass({
 
 var ScorePage = React.createClass({
 
-  shareToFacebook: function () {
-      FB.ui({
-          method: 'share',
-          description: nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
-          picture: 'https://6547ecff.ngrok.io/img/screenshot.png',
-          href: nkoreaTest.url
-      }, function(response){});
-  },
+  //shareToFacebook: function () {
+  //    FB.ui({
+  //        method: 'share',
+  //        description: nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
+  //        picture: 'https://6547ecff.ngrok.io/img/screenshot.png',
+  //        href: nkoreaTest.url
+  //    }, function(response){});
+  //},
 
   shareToWeibo: function () {
-      var title = nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
-          url = nkoreaTest.url;
+      var title = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
+          url = encodeURIComponent(nkoreaTest.url);
       window.open('http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+nkoreaTest.url);
   },
 
-  shareToFacebookViaSharer () {
-      window.open('https://www.facebook.com/sharer/sharer.php?u='+nkoreaTest.url)
+  shareToFacebook () {
+      var description = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
+          url = encodeURIComponent(nkoreaTest.url);
+      console.log('https://www.facebook.com/dialog/feed?app_id=743206445788490+' +
+          '&link=' + url +
+          '&picture=' + nkoreaTest.shareImgRelativePath +
+          '&name=Hahaha' +
+          '&caption=%20' +
+          '&description=Oh' +
+          '&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F'
+      );
+      window.open('https://www.facebook.com/dialog/feed?app_id=743206445788490+' +
+                  '&link=' + url +
+                  '&picture=' + nkoreaTest.url + nkoreaTest.shareImgRelativePath +
+                  '&name=' + "朝鮮新知識模擬考試" +
+                  '&description=' + description +
+                  '&redirect_uri=' + url
+      );
   },
 
   render: function() {
@@ -232,7 +248,7 @@ var ScorePage = React.createClass({
               {nkoreaTest.text.ShareToWeiboText}
           </button>
 
-          <div class='fulltextRecommendation'>{nkoreaTest.text.fulltextRecommendation}<a href=".">鏈接（假）</a></div>
+          <div className='fulltextRecommendation'>{nkoreaTest.text.fulltextRecommendation}<a href=".">鏈接（假）</a></div>
 
         </div>
     );
@@ -240,7 +256,7 @@ var ScorePage = React.createClass({
 });
 
 React.render(
-    <Card surveyData={nkoreaTest.survey} />,
-    //<ScorePage />,
+    //<Card surveyData={nkoreaTest.survey} />,
+    <ScorePage />,
     document.getElementById('content')
 );

@@ -3,7 +3,8 @@ var nkoreaTest = {
   totalScore: 0,
   scorePerQuestion: 20,
   checkboxActive: true,
-  url: 'http://dprk-test.initiumdata.com/',
+  url: 'http://dprk-test.initiumdata.com',
+  shareImgRelativePath: '/img/screenshot.png'
 };
 
 nkoreaTest.text = {
