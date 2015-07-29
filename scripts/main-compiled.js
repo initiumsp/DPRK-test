@@ -299,6 +299,16 @@ var ScorePage = React.createClass({
                     className: "Weibo-Share-btn",
                     onClick: this.shareToWeibo },
                 nkoreaTest.text.ShareToWeiboText
+            ),
+            React.createElement(
+                "div",
+                { "class": "fulltextRecommendation" },
+                nkoreaTest.text.fulltextRecommendation,
+                React.createElement(
+                    "a",
+                    { href: "." },
+                    "鏈接（假）"
+                )
             )
         );
     }
