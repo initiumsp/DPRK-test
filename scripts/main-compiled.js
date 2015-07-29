@@ -254,7 +254,7 @@ var ScorePage = React.createClass({
         FB.ui({
             id: "743206445788490",
             method: "share",
-            href: "https://developers.facebook.com/docs/"
+            href: "http://dprk-test.initiumdata.com/"
         }, function (response) {});
     },
 
