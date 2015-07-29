@@ -150,7 +150,7 @@ var AnswerPanel = React.createClass({
           <div className="answerBox">
             <div className="answerInnerBox">
               <span className="answerLabel">
-                {nkoreaTest.answerLabel}
+                {nkoreaTest.text.answerLabel}
               </span>
               <span className="answerTag">
                 {this.props.data.correctOptionTag}
@@ -159,7 +159,8 @@ var AnswerPanel = React.createClass({
           </div>
           <div className="ExplanationBox">
             {this.props.data.ExplanationText}
-            <button id="next" onClick={this.handleNextButtonClick}> {nkoreaTest.nextButtonLabel} </button>
+            <br />
+            <button id="next" onClick={this.handleNextButtonClick}> {nkoreaTest.text.nextButtonLabel} </button>
           </div>
         </div>
     );
@@ -194,12 +195,45 @@ var Card = React.createClass({
 });
 
 var ScorePage = React.createClass({
+
+  shareToFacebook: function () {
+      FB.ui({
+          method: 'share',
+          description: nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
+          picture: 'https://6547ecff.ngrok.io/img/screenshot.png',
+          href: nkoreaTest.url
+      }, function(response){});
+  },
+
+  shareToWeibo: function () {
+      var title = nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
+          url = nkoreaTest.url;
+      window.open('http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+nkoreaTest.url);
+  },
+
+  shareToFacebookViaSharer () {
+      window.open('https://www.facebook.com/sharer/sharer.php?u='+nkoreaTest.url)
+  },
+
   render: function() {
     var comment = nkoreaTest.scoreComments[nkoreaTest.totalScore.toString()];
     return (
         <div id="ScorePage">
           <h1>你的總分是：{nkoreaTest.totalScore}</h1>
           <p>{comment}</p>
+          <button
+              className="Facebook-Share-btn"
+              onClick={this.shareToFacebook}>
+              {nkoreaTest.text.facebookShareButtonText}
+          </button>
+          <button
+              className="Weibo-Share-btn"
+              onClick={this.shareToWeibo}>
+              {nkoreaTest.text.ShareToWeiboText}
+          </button>
+
+          <div class='fulltextRecommendation'>{nkoreaTest.text.fulltextRecommendation}<a href=".">鏈接（假）</a></div>
+
         </div>
     );
   }
@@ -207,5 +241,6 @@ var ScorePage = React.createClass({
 
 React.render(
     <Card surveyData={nkoreaTest.survey} />,
+    //<ScorePage />,
     document.getElementById('content')
 );

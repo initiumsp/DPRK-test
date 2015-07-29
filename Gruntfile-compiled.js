@@ -15,6 +15,8 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    grunt.loadNpmTasks('grunt-gh-pages');
+
     // Define the configuration for all the tasks
     grunt.initConfig({
 
@@ -235,7 +237,7 @@ module.exports = function (grunt) {
                     dot: true,
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
-                    src: ['*.{ico,png,txt}', '.htaccess', 'images/{,*/}*.webp', 'styles/fonts/{,*/}*.*']
+                    src: ['*.{ico,png,txt}', '.htaccess', 'img/*', 'bower_components/react/*', 'scripts/*-compiled.js', 'styles/*', 'index.html', 'CNAME']
                 }]
             },
             styles: {
@@ -252,7 +254,18 @@ module.exports = function (grunt) {
             server: ['copy:styles'],
             test: ['copy:styles'],
             dist: ['copy:styles', 'react:app', 'imagemin', 'svgmin', 'htmlmin']
+        },
+
+        // deploy to GitHub pages
+        'gh-pages': {
+            options: {
+                base: 'dist',
+                branch: 'gh-pages',
+                repo: 'https://github.com/initiummedia/DPRK-test.git'
+            },
+            src: '**/*'
         }
+
     });
 
     grunt.registerTask('serve', function (target) {
@@ -265,9 +278,11 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', ['clean:server', 'react', 'concurrent:test', 'autoprefixer', 'connect:test', 'mocha']);
 
-    grunt.registerTask('build', ['clean:dist', 'react', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat', 'cssmin', 'uglify', 'copy:dist', 'rev', 'usemin']);
+    grunt.registerTask('build', ['clean:dist', 'react', 'copy:dist']);
 
-    grunt.registerTask('default', ['newer:jshint', 'test', 'build']);
+    grunt.registerTask('deploy', ['gh-pages']);
+
+    grunt.registerTask('default', ['build', 'gh-pages']);
 };
 
 // removeCommentsFromCDATA: true,

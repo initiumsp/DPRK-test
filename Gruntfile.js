@@ -15,6 +15,8 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    grunt.loadNpmTasks('grunt-gh-pages');
+
     // Define the configuration for all the tasks
     grunt.initConfig({
 
@@ -276,8 +278,12 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,png,txt}',
                         '.htaccess',
-                        'images/{,*/}*.webp',
-                        'styles/fonts/{,*/}*.*'
+                        'img/*',
+                        'bower_components/react/*',
+                        'scripts/*-compiled.js',
+                        'styles/*',
+                        'index.html',
+                        'CNAME'
                     ]
                 }]
             },
@@ -307,9 +313,19 @@ module.exports = function (grunt) {
                 'svgmin',
                 'htmlmin'
             ]
-        }
-    });
+        },
 
+        // deploy to GitHub pages
+        'gh-pages': {
+            options: {
+                base: 'dist',
+                branch: 'gh-pages',
+                repo: 'https://github.com/initiummedia/DPRK-test.git'
+            },
+            src: '**/*'
+        }
+
+    });
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
@@ -338,20 +354,15 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'react',
-        'useminPrepare',
-        'concurrent:dist',
-        'autoprefixer',
-        'concat',
-        'cssmin',
-        'uglify',
         'copy:dist',
-        'rev',
-        'usemin'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'gh-pages',
     ]);
 
     grunt.registerTask('default', [
-        'newer:jshint',
-        'test',
-        'build'
+        'build',
+        'gh-pages'
     ]);
 };
