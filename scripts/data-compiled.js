@@ -4,7 +4,8 @@ var nkoreaTest = {
   codeName: "DPRK-test",
   totalScore: 0,
   scorePerQuestion: 20,
-  checkboxActive: true
+  checkboxActive: true,
+  url: "http://dprk-test.initiumdata.com/"
 };
 
 nkoreaTest.text = {

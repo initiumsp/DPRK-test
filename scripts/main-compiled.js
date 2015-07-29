@@ -256,12 +256,18 @@ var ScorePage = React.createClass({
             method: "share",
             description: nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
             picture: "https://6547ecff.ngrok.io/img/screenshot.png",
-            href: "http://dprk-test.initiumdata.com/"
+            href: nkoreaTest.url
         }, function (response) {});
     },
 
     shareToWeibo: function shareToWeibo() {
-        console.log("hehe");
+        var title = nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
+            url = nkoreaTest.url;
+        window.open("http://v.t.sina.com.cn/share/share.php?title=" + title + "&url=" + nkoreaTest.url);
+    },
+
+    shareToFacebookViaSharer: function shareToFacebookViaSharer() {
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + nkoreaTest.url);
     },
 
     render: function render() {
@@ -286,6 +292,13 @@ var ScorePage = React.createClass({
                     className: "Facebook-Share-btn",
                     onClick: this.shareToFacebook },
                 nkoreaTest.text.facebookShareButtonText
+            ),
+            React.createElement(
+                "button",
+                {
+                    className: "Facebook-Share-btn",
+                    onClick: this.shareToFacebookViaSharer },
+                nkoreaTest.text.facebookShareButtonText + " Sharer"
             ),
             React.createElement(
                 "button",
