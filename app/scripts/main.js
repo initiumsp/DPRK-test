@@ -2,7 +2,7 @@ var Banner = React.createClass({
   render: function() {
     return (
         <div id="Banner">
-          <img src="img/Banner.png" />
+          <img src="img/banner.png" />
         </div>
     );
   }
@@ -274,7 +274,7 @@ var ScorePage = React.createClass({
 document.getElementsByTagName('title')[0].innerHTML = nkoreaTest.title;
 
 React.render(
-    //<Card surveyData={nkoreaTest.survey} />,
-    <ScorePage />,
+    <Card surveyData={nkoreaTest.survey} />,
+    //<ScorePage />,
     document.getElementById('content')
 );
