@@ -7,7 +7,7 @@ var Banner = React.createClass({
         return React.createElement(
             "div",
             { id: "Banner" },
-            React.createElement("img", { src: "img/Banner.png" })
+            React.createElement("img", { src: "img/banner.png" })
         );
     }
 });
