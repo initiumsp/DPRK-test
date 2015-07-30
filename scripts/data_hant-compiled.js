@@ -18,8 +18,8 @@ nkoreaTest.text = {
   fulltextRecommendation: "點擊閱讀脫北青年獨家專訪，看一個社會價值重塑、青年尋找自我的現代朝鮮。文章鏈接：",
   facebookShareButtonText: "分享到Facebook",
   ShareToWeiboText: "分享到新浪微博",
-  lastButtonLabel: "Show Me the Result!",
-  marketingInfoboxInnerHTML: "<span style=\"color: red\">「端」APP:" + "<a href=\"https://theinitium.com/download/\" style=\"color: red\">https://theinitium.com/download</a></span>" + "<br />" + "「https://theinitium.com/download/</a>" + "<br />" + "「端」網：theinitum.com" + "「端」報：香港發行，逢週五出版"
+  lastButtonLabel: "看我幾分!",
+  marketingInfoboxInnerHTML: "<span style=\"color: red\"><strong>「端」APP：</strong>" + "<a href=\"https://theinitium.com/download/\" style=\"color: red\">https://theinitium.com/download</a></span>" + "<br />" + "<strong>「端」網：</strong><a href=\"http://theinitum.com\">theinitum.com</a>" + "<br />" + "<strong>「端」報：</strong>香港發行，逢週五出版"
 };
 
 nkoreaTest.survey = [{
