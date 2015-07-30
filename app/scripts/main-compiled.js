@@ -17,24 +17,19 @@ var QuestionPanel = React.createClass({
 
     handleCheckboxClick: function handleCheckboxClick(clickedOptionTag, event) {
 
-        // Guard against multiple clicks
-        if (!nkoreaTest.checkboxActive) {
-            return;
-        }
-        nkoreaTest.checkboxActive = false;
-
         nkoreaTest.Card.state.chosenOptionTag = clickedOptionTag;
-
-        // All questions answered: display total score
-        if (nkoreaTest.Card.state.questionSerial >= nkoreaTest.survey.length - 1) {
-            React.render(React.createElement(ScorePage, null), document.getElementById("content"));
-        }
 
         //Show the answer
         nkoreaTest.Card.setState({ showAnswer: true });
 
         if (clickedOptionTag === this.props.data.correctOptionTag) {
             nkoreaTest.totalScore += nkoreaTest.scorePerQuestion;
+        }
+
+        // Disable all checkboxes
+        var checkboxes = document.getElementsByClassName("checkbox");
+        for (var i = 0; i < checkboxes.length; i += 1) {
+            checkboxes[i].disabled = true;
         }
     },
 
@@ -76,33 +71,46 @@ var QuestionPanel = React.createClass({
 
         var optionBoxes;
         if (this.props.data.optionContainsImage) {
-            // TODO: special layout for imaged stuff
             optionBoxes = this.props.data.options.map(function (option) {
+                // Special adjustment for wider images
+                var widerMarker = "";
+                if (option.optionTag === "D") {
+                    widerMarker = " optionBoxWithImageWide";
+                }
                 return React.createElement(
                     "div",
-                    { className: "optionBox", key: option.optionTag },
+                    { className: "optionBox optionBoxWithImage" + widerMarker, key: option.optionTag },
                     React.createElement(
                         "label",
-                        null,
-                        React.createElement("input", { type: "checkbox",
-                            name: option.optionTag,
-                            onChange: this.handleCheckboxClick.bind(this, option.optionTag),
-                            className: "checkbox"
-                        }),
+                        { className: "WithImage" },
                         React.createElement(
-                            "span",
-                            { className: "optionTag" },
-                            option.optionTag
+                            "div",
+                            { className: "optionBoxLeftContainer" },
+                            React.createElement("input", { type: "checkbox",
+                                name: option.optionTag,
+                                onChange: this.handleCheckboxClick.bind(this, option.optionTag),
+                                className: "checkbox"
+                            }),
+                            React.createElement(
+                                "span",
+                                { className: "optionTag" },
+                                option.optionTag
+                            )
                         ),
+                        React.createElement("img", { src: option.imagePath, className: "insertImage" }),
                         React.createElement(
-                            "span",
-                            { className: "optionText" },
-                            option.optionText
-                        ),
-                        React.createElement(
-                            "span",
-                            { className: "CorrectnessSign" },
-                            this.getCorrectnessSign(option.optionTag)
+                            "div",
+                            { className: "optionBoxRightContainer" },
+                            React.createElement(
+                                "span",
+                                { className: "optionText optionTextWithImage" },
+                                option.optionText
+                            ),
+                            React.createElement(
+                                "span",
+                                { className: "CorrectnessSign" },
+                                this.getCorrectnessSign(option.optionTag)
+                            )
                         )
                     )
                 );
@@ -173,14 +181,23 @@ var AnswerPanel = React.createClass({
             showAnswer: false
         });
 
-        //Uncheck all checkboxes
+        if (nkoreaTest.Card.state.questionSerial === nkoreaTest.survey.length - 2) {
+            nkoreaTest.Card.setState({
+                lastQuestion: true
+            });
+        }
+
+        if (nkoreaTest.Card.state.questionSerial >= nkoreaTest.survey.length - 1) {
+            React.render(React.createElement(ScorePage, null), document.getElementById("content"));
+        }
+
+        //Uncheck all checkboxes and enable them
         var checkboxes = document.getElementsByClassName("checkbox");
         for (var i = 0; i < checkboxes.length; i += 1) {
             checkboxes[i].checked = false;
+            checkboxes[i].disabled = false;
         }
         nkoreaTest.Card.state.chosenOptionTag = null;
-
-        nkoreaTest.checkboxActive = true;
     },
 
     render: function render() {
@@ -208,14 +225,15 @@ var AnswerPanel = React.createClass({
             React.createElement(
                 "div",
                 { className: "ExplanationBox" },
-                this.props.data.ExplanationText,
-                React.createElement("br", null),
+                React.createElement(
+                    "span",
+                    { className: "Explanation" },
+                    this.props.data.ExplanationText
+                ),
                 React.createElement(
                     "button",
                     { id: "next", onClick: this.handleNextButtonClick },
-                    " ",
-                    nkoreaTest.text.nextButtonLabel,
-                    " "
+                    nkoreaTest.Card.state.lastQuestion ? nkoreaTest.text.lastButtonLabel : nkoreaTest.text.nextButtonLabel
                 )
             )
         );
@@ -230,7 +248,8 @@ var Card = React.createClass({
             questionSerial: 0,
             answerSerial: 0,
             showAnswer: false,
-            chosenOptionTag: null
+            chosenOptionTag: null,
+            lastQuestion: false
         };
     },
 
@@ -316,6 +335,8 @@ var ScorePage = React.createClass({
         );
     }
 });
+
+document.getElementsByTagName("title")[0].innerHTML = nkoreaTest.title;
 
 React.render(React.createElement(Card, { surveyData: nkoreaTest.survey }),
 //<ScorePage />,

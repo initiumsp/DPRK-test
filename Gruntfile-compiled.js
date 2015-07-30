@@ -264,6 +264,22 @@ module.exports = function (grunt) {
                 repo: 'https://github.com/initiummedia/DPRK-test.git'
             },
             src: '**/*'
+        },
+
+        rsync: {
+            options: {
+                args: ['--verbose'],
+                exclude: ['.git*', '*.scss', 'node_modules'],
+                recursive: true
+            },
+            showcase: {
+                options: {
+                    src: './dist/',
+                    dest: '/home/vagrant/web/DPRK-test',
+                    host: 'showcase',
+                    'delete': true // Careful this option could cause data loss, read the docs!
+                }
+            }
         }
 
     });
@@ -280,9 +296,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', ['clean:dist', 'react', 'copy:dist']);
 
-    grunt.registerTask('deploy', ['gh-pages']);
+    grunt.registerTask('deploy', ['rsync', 'gh-pages']);
 
-    grunt.registerTask('default', ['build', 'gh-pages']);
+    grunt.registerTask('default', ['build', 'gh-pages', 'rsync']);
 };
 
 // removeCommentsFromCDATA: true,

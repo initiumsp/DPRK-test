@@ -1,39 +1,11 @@
 body {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
-}
-
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
-}
-
-.hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
-}
-
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-body {
     font-family: "LiHei Pro Medium", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif
-margin: 0;
-    font-size: 2em;
+    margin: 0;
+    font-size: 3em;
     width: 100%;
     height: 100%;
+    background-image: url(../img/background.png);
+    background-repeat: repeat;
 }
 
 input[type=checkbox] {
@@ -44,14 +16,19 @@ input[type=checkbox] {
 }
 
 div#Card {
-    background-color: #FDD;
     margin: 0 auto;
+    background-repeat: repeat;
 }
 
 div#questionTag {
     font-size: 120%;
     font-weight: 700;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+    color: #31AFBE;
+}
+
+span.Explanation {
+    line-height: 1.5;
 }
 
 @media (min-device-width: 1036px) {
@@ -62,28 +39,29 @@ div#questionTag {
 
 div#Banner {
     text-align: center;
+    width: 100%;
 }
 
 div#QuestionPanel {
-    background-color: navajowhite;
     height: 60%;
-    padding: 0.5em auto;
+    padding: 1em 0.1em;
     width: 100%;
 }
 
 div#AnswerPanel {
-    background-color: #DAEFFF;
     height: 30%;
     width: 100%;
     padding: 0.5em auto;
 }
 
 div.optionBox {
-    margin-top: 1.5em;
+    margin-top: 1.0em;
 }
+
 
 span.optionTag {
     margin-right: 0.5em;
+    color: red;
 }
 
 span.CorrectnessSign-correct {
@@ -96,4 +74,53 @@ span.CorrectnessSign-wrong {
 
 button {
     font-size: 1em;
+    border: 2px solid black;
+    background: white;
+    float: right;
+    margin-right: 10px;
+}
+
+div.optionBoxWithImage {
+    display: inline-block;
+    width: 45%;
+    margin-right: 5%;
+}
+
+div.optionBoxWithImageWide {
+    width: 49%;
+    margin-right: 0;
+}
+
+span.optionText {
+    font-size: 1.2em;
+}
+
+span.optionTextWithImage {
+    font-size: 0.8em;
+}
+
+img.insertImage {
+    float: right;
+    display: block;
+    height: 300px;
+}
+
+img.insertImageWide {
+    position: relative;
+    margin-left: 10%;
+}
+
+.optionBoxLeftContainer {
+    float: left;
+    width: 10%;
+    line-height: 0.8;
+}
+
+.optionBoxRightContainer {
+    float: left;
+    width: 60%;
+}
+
+div#questionText {
+    line-height: 1.5;
 }
