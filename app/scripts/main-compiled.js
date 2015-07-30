@@ -66,7 +66,6 @@ var QuestionPanel = React.createClass({
 
         if (nkoreaTest.Card.state.answerSerial >= nkoreaTest.survey.length) {
             return;
-            // TODO
         }
 
         var optionBoxes;

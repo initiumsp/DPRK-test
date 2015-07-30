@@ -72,7 +72,7 @@ span.CorrectnessSign-wrong {
     color: darkred;
 }
 
-button {
+button#next {
     font-size: 1em;
     border: 2px solid black;
     background: white;

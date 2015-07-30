@@ -1,0 +1,1 @@
+{"version":3,"sources":["7231ff8d62edd92c5f81d32b342fee662ffd5c79.js"],"names":[],"mappings":";;AAAA,IAAI,GAAG,GAAG,EAAE,CAAC;AACb,GAAG,CAAC,MAAM,GAAG,CACX;AACE,eAAa,EAAE,KAAK;;CAErB,CACF,CAAC","file":"7231ff8d62edd92c5f81d32b342fee662ffd5c79-compiled.js","sourcesContent":["var app = {};\napp.survey = [\n  {\n    \"questionTag\": \"數學題\",\n    \n  }\n];\n"]}
