@@ -21,15 +21,7 @@ nkoreaTest.text = {
   lastButtonLabel: "Show Me the Result!"
 };
 
-nkoreaTest.survey = [{ // Test question for image option development; delete this node for official release.
-  "serial": 2,
-  "questionTag": "禮儀題",
-  "questionText": "在金正恩時代的朝鮮，城市年輕女性的流行穿著是？",
-  "optionContainsImage": true,
-  "options": [{ "optionTag": "A", "optionText": "西方白領風格的女式工作西裝", "imagePath": "img/dressA.png" }, { "optionTag": "B", "optionText": "深色樸素的長衣＋長褲", "imagePath": "img/dressB.png" }, { "optionTag": "C", "optionText": "修身連衣裙＋短款上衣", "imagePath": "img/dressC.png" }, { "optionTag": "D", "optionText": "鮮豔的朝鮮民族服飾", "imagePath": "img/dressD.png" }],
-  "correctOptionTag": "C",
-  "ExplanationText": "脫北者李雪花（化名）說，時下朝鮮最流行金正恩妻子李雪主風格的女式裙裝。以前想都不敢想的中央藝術團演員裝如今在市場可購，很多人模仿李雪主的穿著，通常為修身連衣裙加短款上衣，裙長度要在膝蓋之下。"
-}, {
+nkoreaTest.survey = [{
   "serial": 0,
   "questionTag": "數學題",
   "questionText": "偉大的金正日將軍領導的抗日游擊隊攻擊日本軍隊，殺了18個日本兵，抓住了28個，跑掉了50個，一共有多少個日本兵？",
@@ -45,12 +37,12 @@ nkoreaTest.survey = [{ // Test question for image option development; delete thi
   "options": [{ "optionTag": "A", "optionText": "3歲" }, { "optionTag": "B", "optionText": "13歲" }, { "optionTag": "C", "optionText": "23歲" }],
   "correctOptionTag": "A",
   "ExplanationText": "解析：朝鮮兒童從小學習領導人家庭史：小學學習領導人的少年時代，中學學習青年時代，高中學習思想理論。朝鮮高中生朴常凱（化名）記得，從2013年開始，學校會安排關於金正恩的講座，講座中提到，金正恩3歲會開槍，6歲和美國選手比賽快艇獲勝。"
-}, {
+}, { // Test question for image option development; delete this node for official release.
   "serial": 2,
   "questionTag": "禮儀題",
   "questionText": "在金正恩時代的朝鮮，城市年輕女性的流行穿著是？",
   "optionContainsImage": true,
-  "options": [{ "optionTag": "A", "optionText": "西方白領風格的女式工作西裝" }, { "optionTag": "B", "optionText": "深色樸素的長衣＋長褲" }, { "optionTag": "C", "optionText": "修身連衣裙＋短款上衣" }, { "optionTag": "D", "optionText": "鮮豔的朝鮮民族服飾 " }],
+  "options": [{ "optionTag": "A", "optionText": "西方白領風格的女式工作西裝", "imagePath": "img/dressA.png" }, { "optionTag": "B", "optionText": "深色樸素的長衣＋長褲", "imagePath": "img/dressB.png" }, { "optionTag": "C", "optionText": "修身連衣裙＋短款上衣", "imagePath": "img/dressC.png" }, { "optionTag": "D", "optionText": "鮮豔的朝鮮民族服飾", "imagePath": "img/dressD.png" }],
   "correctOptionTag": "C",
   "ExplanationText": "脫北者李雪花（化名）說，時下朝鮮最流行金正恩妻子李雪主風格的女式裙裝。以前想都不敢想的中央藝術團演員裝如今在市場可購，很多人模仿李雪主的穿著，通常為修身連衣裙加短款上衣，裙長度要在膝蓋之下。"
 }, {
