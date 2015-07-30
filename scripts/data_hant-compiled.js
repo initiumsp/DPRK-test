@@ -18,7 +18,8 @@ nkoreaTest.text = {
   fulltextRecommendation: "點擊閱讀脫北青年獨家專訪，看一個社會價值重塑、青年尋找自我的現代朝鮮。文章鏈接：",
   facebookShareButtonText: "分享到Facebook",
   ShareToWeiboText: "分享到新浪微博",
-  lastButtonLabel: "Show Me the Result!"
+  lastButtonLabel: "Show Me the Result!",
+  marketingInfoboxInnerHTML: "<span style=\"color: red\">「端」APP:" + "<a href=\"https://theinitium.com/download/\" style=\"color: red\">https://theinitium.com/download</a></span>" + "<br />" + "「https://theinitium.com/download/</a>" + "<br />" + "「端」網：theinitum.com" + "「端」報：香港發行，逢週五出版"
 };
 
 nkoreaTest.survey = [{
@@ -37,7 +38,7 @@ nkoreaTest.survey = [{
   "options": [{ "optionTag": "A", "optionText": "3歲" }, { "optionTag": "B", "optionText": "13歲" }, { "optionTag": "C", "optionText": "23歲" }],
   "correctOptionTag": "A",
   "ExplanationText": "解析：朝鮮兒童從小學習領導人家庭史：小學學習領導人的少年時代，中學學習青年時代，高中學習思想理論。朝鮮高中生朴常凱（化名）記得，從2013年開始，學校會安排關於金正恩的講座，講座中提到，金正恩3歲會開槍，6歲和美國選手比賽快艇獲勝。"
-}, { // Test question for image option development; delete this node for official release.
+}, {
   "serial": 2,
   "questionTag": "禮儀題",
   "questionText": "在金正恩時代的朝鮮，城市年輕女性的流行穿著是？",
