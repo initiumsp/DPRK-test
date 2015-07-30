@@ -269,15 +269,6 @@ var Card = React.createClass({
 var ScorePage = React.createClass({
     displayName: "ScorePage",
 
-    //shareToFacebook: function () {
-    //    FB.ui({
-    //        method: 'share',
-    //        description: nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
-    //        picture: 'https://6547ecff.ngrok.io/img/screenshot.png',
-    //        href: nkoreaTest.url
-    //    }, function(response){});
-    //},
-
     shareToWeibo: function shareToWeibo() {
         var title = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
             url = encodeURIComponent(nkoreaTest.url);
@@ -291,11 +282,16 @@ var ScorePage = React.createClass({
         window.open("https://www.facebook.com/dialog/feed?app_id=743206445788490+" + "&link=" + url + "&picture=" + nkoreaTest.url + nkoreaTest.shareImgRelativePath + "&name=" + "朝鮮新知識模擬考試" + "&description=" + description + "&redirect_uri=" + url);
     },
 
+    componentDidMount: function componentDidMount() {
+        document.getElementById("marketingInfobox").innerHTML = nkoreaTest.text.marketingInfoboxInnerHTML;
+    },
+
     render: function render() {
         var comment = nkoreaTest.scoreComments[nkoreaTest.totalScore.toString()];
         return React.createElement(
             "div",
             { id: "ScorePage" },
+            React.createElement(Banner, null),
             React.createElement(
                 "h1",
                 null,
@@ -309,16 +305,16 @@ var ScorePage = React.createClass({
             ),
             React.createElement(
                 "button",
-                {
-                    className: "Facebook-Share-btn",
+                { className: "share Facebook-Share-btn",
                     onClick: this.shareToFacebook },
+                React.createElement("img", { src: "img/FB-f-Logo__blue_50.png" }),
                 nkoreaTest.text.facebookShareButtonText
             ),
             React.createElement(
                 "button",
-                {
-                    className: "Weibo-Share-btn",
+                { className: "share Weibo-Share-btn",
                     onClick: this.shareToWeibo },
+                React.createElement("img", { src: "img/weibo_48x48.png" }),
                 nkoreaTest.text.ShareToWeiboText
             ),
             React.createElement(
@@ -330,15 +326,16 @@ var ScorePage = React.createClass({
                     { href: "." },
                     "鏈接（假）"
                 )
-            )
+            ),
+            React.createElement("div", { id: "marketingInfobox" })
         );
     }
 });
 
 document.getElementsByTagName("title")[0].innerHTML = nkoreaTest.title;
 
-React.render(React.createElement(Card, { surveyData: nkoreaTest.survey }),
-//<ScorePage />,
-document.getElementById("content"));
+React.render(
+//<Card surveyData={nkoreaTest.survey} />,
+React.createElement(ScorePage, null), document.getElementById("content"));
 
 //# sourceMappingURL=main-compiled.js.map
