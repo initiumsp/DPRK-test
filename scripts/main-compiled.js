@@ -334,8 +334,8 @@ var ScorePage = React.createClass({
 
 document.getElementsByTagName("title")[0].innerHTML = nkoreaTest.title;
 
-React.render(
-//<Card surveyData={nkoreaTest.survey} />,
-React.createElement(ScorePage, null), document.getElementById("content"));
+React.render(React.createElement(Card, { surveyData: nkoreaTest.survey }),
+//<ScorePage />,
+document.getElementById("content"));
 
 //# sourceMappingURL=main-compiled.js.map
