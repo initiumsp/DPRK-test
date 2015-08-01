@@ -23,7 +23,8 @@ nkoreaTest.text = {
       '<br />' +
       '<strong>「端」網：</strong><a href="http://theinitum.com">theinitum.com</a>' +
       '<br />' +
-      '<strong>「端」報：</strong>香港發行，逢週五出版'
+      '<strong>「端」報：</strong>香港發行，逢週五出版' + '<br />' +
+      '端app：（中國內地用戶）<a href="https://theinitium.com/download/?force_cn=true">https://theinitium.com/download/?force_cn=true</a>'
 };
 
 nkoreaTest.survey = [

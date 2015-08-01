@@ -17,6 +17,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 
     // Define the configuration for all the tasks
     grunt.initConfig({
@@ -50,9 +51,9 @@ module.exports = function (grunt) {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.scripts'],
                 tasks: ['react:app']
             },
-            styles: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-                tasks: ['newer:copy:styles', 'autoprefixer']
+            css: {
+                files: ['**/*.scss'],
+                tasks: ['sass']
             },
             livereload: {
                 options: {
@@ -281,6 +282,16 @@ module.exports = function (grunt) {
                     'delete': true // Careful this option could cause data loss, read the docs!
                 }
             }
+        },
+
+        sass: { // Task
+            dist: { // Target
+                options: { // Target options
+                    style: 'expanded'
+                },
+                files: { // Dictionary of files
+                    'app/styles/main.css': 'app/styles/main.scss' }
+            }
         }
 
     });
@@ -310,5 +321,6 @@ module.exports = function (grunt) {
 // useShortDoctype: true,
 // removeEmptyAttributes: true,
 // removeOptionalTags: true
+// 'destination': 'source'
 
 //# sourceMappingURL=Gruntfile-compiled.js.map

@@ -17,6 +17,8 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-gh-pages');
     grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Define the configuration for all the tasks
     grunt.initConfig({
@@ -50,9 +52,9 @@ module.exports = function (grunt) {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.scripts'],
                 tasks: ['react:app']
             },
-            styles: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-                tasks: ['newer:copy:styles', 'autoprefixer']
+            css: {
+                files: ['**/*.scss'],
+                tasks: ['sass'],
             },
             livereload: {
                 options: {
@@ -297,8 +299,6 @@ module.exports = function (grunt) {
             }
         },
 
-
-
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
@@ -341,6 +341,17 @@ module.exports = function (grunt) {
             }
           }
         },
+
+        sass: {                              // Task
+          dist: {                            // Target
+            options: {                       // Target options
+              style: 'expanded'
+            },
+            files: {                         // Dictionary of files
+              'app/styles/main.css': 'app/styles/main.scss',       // 'destination': 'source'
+            }
+          }
+        }
 
     });
 
