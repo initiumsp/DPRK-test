@@ -5,7 +5,11 @@ $correctAnswerSignColor: green;
 body {
     font-family: "LiHei Pro Medium", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif;
     margin: 0;
-    font-size: 3em;
+    padding: 5px;
+    font-size: 2.5em;
+    @media screen and (max-height: 900) {
+        font-size: 2.2em;
+    }
     width: 100%;
     height: 100%;
     background: url(../img/background.png) repeat;
@@ -35,58 +39,66 @@ body {
 
             #OptionPanel {
 
-                div.optionBox {
+                .optionBox {
                     margin-top: 1.0em;
 
-                    input[type=checkbox] {
-                        transform: scale(2.0);
-                        -webkit-transform: scale(2.0);
-                        vertical-align: text-top;
-                        margin: 1em;
-                    }
+                    label {
+                        width: 100%;
+                        display: block;
 
-                    span.optionTag {
-                        margin-right: 0.5em;
-                        color: $answerTagColor;
-                    }
+                        input[type=checkbox] {
+                            transform: scale(2.0);
+                            -webkit-transform: scale(2.0);
+                            vertical-align: text-top;
+                            margin: 1em;
+                        }
 
-                    span.optionText {
-                        font-size: 1.2em;
-                    }
+                        .optionTag {
+                            margin-right: 0.5em;
+                            color: $answerTagColor;
+                        }
 
-                    span.optionTextWithImage {
-                        font-size: 0.8em;
-                    }
+                        .optionText {
+                            font-size: 1.2em;
+                        }
 
-                    span.CorrectnessSign-correct {
-                        color: $correctAnswerSignColor;
-                    }
+                        .optionTextWithImage {
+                            font-size: 0.8em;
+                            vertical-align: top;
+                            line-height: 1;
+                        }
 
-                    span.CorrectnessSign-wrong {
-                        color: $wrongAnswerSignColor;
-                    }
+                        .CorrectnessSign-correct {
+                            color: $correctAnswerSignColor;
+                            vertical-align: top;
+                        }
 
-                    .optionBoxLeftContainer {
-                        float: left;
-                        width: 10%;
-                        line-height: 0.8;
-                    }
+                        .CorrectnessSign-wrong {
+                            color: $wrongAnswerSignColor;
+                            vertical-align: top;
+                        }
 
-                    .optionBoxRightContainer {
-                        float: left;
-                        width: 60%;
-                    }
+                        .optionBoxLeftContainer {
+                            float: left;
+                            width: 10%;
+                            line-height: 0.8;
+                        }
 
+                        .optionBoxRightContainer {
+                            float: left;
+                            width: 60%;
+                        }
+                    }
 
                 }
 
-                div.optionBoxWithImage {
+                .optionBoxWithImage {
                     display: inline-block;
                     width: 45%;
                     margin-right: 5%;
                 }
 
-                div.optionBoxWithImageWide {
+                .optionBoxWithImageWide {
                     width: 49%;
                     margin-right: 0;
                 }
@@ -108,43 +120,50 @@ body {
         #AnswerPanel {
             height: 30%;
             width: 100%;
-            padding: 0.5em auto;
-        }
+            padding: 0.2em auto;
 
-        div.answerBox {
+            .answerBox {
 
-            div.answerInnerBox {
-                text-align: center;
+                .answerInnerBox {
+                    text-align: center;
+                    font-size: 1.5em;
 
-                span.answerTag {
-                    color: $answerTagColor;
+                    .answerTag {
+                        color: $answerTagColor;
+                        margin-left: 5px;
+                    }
+
                 }
 
             }
 
-        }
+            .ExplanationBox {
+                background: url(../img/ExplanationBox-border.png) no-repeat;
+                background-size: 100% 100%;
+                padding: 20px 50px;
+                margin: 2px;
 
-        div.ExplanationBox {
-            padding: 10px;
+                .Explanation {
+                    line-height: 1.5;
+                }
 
-            span.Explanation {
-                line-height: 1.5;
+                button#next {
+                    font-size: 1em;
+                    border: 2px solid black;
+                    background: white;
+                    float: right;
+                    margin-right: 45px;
+                    border-radius: 5px;
+                }
+
             }
-
-            button#next {
-                font-size: 1em;
-                border: 2px solid black;
-                background: white;
-                float: right;
-                margin-right: 10px;
-            }
-
         }
     }
 
     #ScorePage {
         margin: 0 auto;
         background-repeat: repeat;
+        padding: 5px;
 
         button.share {
             font-size: 1em;
@@ -174,11 +193,10 @@ body {
     }
 }
 
+// For computer screens
 @media (min-device-width: 1000px) {
-    div#Card, div#ScorePage {
+    #Card, #ScorePage {
         width: 1000px;
     }
 }
-
-
 

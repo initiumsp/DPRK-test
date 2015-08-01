@@ -271,7 +271,7 @@ var ScorePage = React.createClass({
   }
 });
 
-document.getElementsByTagName('title')[0].innerHTML = nkoreaTest.title;
+document.title = nkoreaTest.title;
 
 React.render(
     <Card surveyData={nkoreaTest.survey} />,
