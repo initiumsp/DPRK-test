@@ -149,10 +149,12 @@ body {
             .ExplanationBox {
                 //background: url(../img/ExplanationBox-border.png) no-repeat;
                 //background-size: 100% 100%;
+
                 border: 5px solid $initiumGreen;
                 padding: 20px 50px;
                 margin: 2px;
                 text-align: left;
+                overflow: hidden;
 
                 .Explanation {
                     line-height: 1.5;
@@ -164,6 +166,7 @@ body {
                     background: white;
                     margin-left: 1em;
                     border-radius: 5px;
+                    float: right;
                 }
 
             }
@@ -206,11 +209,8 @@ body {
 // For wider screens
 @media (min-device-width: 1000px) {
     #Card, #ScorePage {
-        width: 1000px;
+        width: 50%;
         margin: 0 auto;
-    }
-    div.optionBox {
-        margin-top: 0.3em;
     }
 }
 

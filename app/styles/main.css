@@ -86,7 +86,8 @@ body {
       border: 5px solid #31AFBE;
       padding: 20px 50px;
       margin: 2px;
-      text-align: left; }
+      text-align: left;
+      overflow: hidden; }
       body #Card #AnswerPanel .ExplanationBox .Explanation {
         line-height: 1.5; }
       body #Card #AnswerPanel .ExplanationBox button#next {
@@ -94,7 +95,8 @@ body {
         border: 5px solid #31AFBE;
         background: white;
         margin-left: 1em;
-        border-radius: 5px; }
+        border-radius: 5px;
+        float: right; }
   body #ScorePage {
     margin: 0 auto;
     background-repeat: repeat;
@@ -117,10 +119,7 @@ body {
 
 @media (min-device-width: 1000px) {
   #Card, #ScorePage {
-    width: 1000px;
-    margin: 0 auto; }
-
-  div.optionBox {
-    margin-top: 0.3em; } }
+    width: 50%;
+    margin: 0 auto; } }
 
 /*# sourceMappingURL=main.css.map */
