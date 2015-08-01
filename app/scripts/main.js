@@ -161,17 +161,17 @@ var AnswerPanel = React.createClass({
   render: function() {
     return (
         <div id="AnswerPanel" data={this.props.data} key={0}>
-          <div className="answerBox">
-            <div className="answerInnerBox">
-              <span className="answerLabel">
-                {nkoreaTest.text.answerLabel}
-              </span>
-              <span className="answerTag">
-                {this.props.data.correctOptionTag}
-              </span>
-            </div>
-          </div>
           <div className="ExplanationBox">
+            <div className="answerBox">
+                <div className="answerInnerBox">
+                  <span className="answerLabel">
+                    {nkoreaTest.text.answerLabel}
+                  </span>
+                  <span className="answerTag">
+                    {this.props.data.correctOptionTag}
+                  </span>
+                </div>
+            </div>
             <span className="Explanation">{this.props.data.ExplanationText}</span>
             <button id="next" onClick={this.handleNextButtonClick}>
                 {nkoreaTest.Card.state.lastQuestion ?
@@ -278,3 +278,4 @@ React.render(
     //<ScorePage />,
     document.getElementById('content')
 );
+

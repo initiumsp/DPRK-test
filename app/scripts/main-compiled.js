@@ -205,25 +205,25 @@ var AnswerPanel = React.createClass({
             { id: "AnswerPanel", data: this.props.data, key: 0 },
             React.createElement(
                 "div",
-                { className: "answerBox" },
+                { className: "ExplanationBox" },
                 React.createElement(
                     "div",
-                    { className: "answerInnerBox" },
+                    { className: "answerBox" },
                     React.createElement(
-                        "span",
-                        { className: "answerLabel" },
-                        nkoreaTest.text.answerLabel
-                    ),
-                    React.createElement(
-                        "span",
-                        { className: "answerTag" },
-                        this.props.data.correctOptionTag
+                        "div",
+                        { className: "answerInnerBox" },
+                        React.createElement(
+                            "span",
+                            { className: "answerLabel" },
+                            nkoreaTest.text.answerLabel
+                        ),
+                        React.createElement(
+                            "span",
+                            { className: "answerTag" },
+                            this.props.data.correctOptionTag
+                        )
                     )
-                )
-            ),
-            React.createElement(
-                "div",
-                { className: "ExplanationBox" },
+                ),
                 React.createElement(
                     "span",
                     { className: "Explanation" },

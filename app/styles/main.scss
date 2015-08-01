@@ -1,0 +1,184 @@
+$answerTagColor: #FF0000;
+$wrongAnswerSignColor: darkred;
+$correctAnswerSignColor: green;
+
+body {
+    font-family: "LiHei Pro Medium", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    font-size: 3em;
+    width: 100%;
+    height: 100%;
+    background: url(../img/background.png) repeat;
+
+    #Card {
+
+        #Banner {
+            text-align: center;
+            width: 100%;
+        }
+
+        #QuestionPanel {
+            height: 60%;
+            padding: 1em 0.1em;
+            width: 100%;
+
+            #questionTag {
+                font-size: 120%;
+                font-weight: 700;
+                margin-bottom: 0.5em;
+                color: #31AFBE;
+            }
+
+            #questionText {
+                line-height: 1.5;
+            }
+
+            #OptionPanel {
+
+                div.optionBox {
+                    margin-top: 1.0em;
+
+                    input[type=checkbox] {
+                        transform: scale(2.0);
+                        -webkit-transform: scale(2.0);
+                        vertical-align: text-top;
+                        margin: 1em;
+                    }
+
+                    span.optionTag {
+                        margin-right: 0.5em;
+                        color: $answerTagColor;
+                    }
+
+                    span.optionText {
+                        font-size: 1.2em;
+                    }
+
+                    span.optionTextWithImage {
+                        font-size: 0.8em;
+                    }
+
+                    span.CorrectnessSign-correct {
+                        color: $correctAnswerSignColor;
+                    }
+
+                    span.CorrectnessSign-wrong {
+                        color: $wrongAnswerSignColor;
+                    }
+
+                    .optionBoxLeftContainer {
+                        float: left;
+                        width: 10%;
+                        line-height: 0.8;
+                    }
+
+                    .optionBoxRightContainer {
+                        float: left;
+                        width: 60%;
+                    }
+
+
+                }
+
+                div.optionBoxWithImage {
+                    display: inline-block;
+                    width: 45%;
+                    margin-right: 5%;
+                }
+
+                div.optionBoxWithImageWide {
+                    width: 49%;
+                    margin-right: 0;
+                }
+            }
+
+            img.insertImage {
+                float: right;
+                display: block;
+                height: 300px;
+            }
+
+            img.insertImageWide {
+                position: relative;
+                margin-left: 10%;
+            }
+
+        }
+
+        #AnswerPanel {
+            height: 30%;
+            width: 100%;
+            padding: 0.5em auto;
+        }
+
+        div.answerBox {
+
+            div.answerInnerBox {
+                text-align: center;
+
+                span.answerTag {
+                    color: $answerTagColor;
+                }
+
+            }
+
+        }
+
+        div.ExplanationBox {
+            padding: 10px;
+
+            span.Explanation {
+                line-height: 1.5;
+            }
+
+            button#next {
+                font-size: 1em;
+                border: 2px solid black;
+                background: white;
+                float: right;
+                margin-right: 10px;
+            }
+
+        }
+    }
+
+    #ScorePage {
+        margin: 0 auto;
+        background-repeat: repeat;
+
+        button.share {
+            font-size: 1em;
+            display: block;
+            width: 12em;
+            text-align: center;
+            margin-bottom: 0.5em;
+
+            img {
+                vertical-align: text-bottom;
+            }
+        }
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        span {
+            margin-top: 0.5em;
+        }
+
+        #marketingInfobox {
+            font-size: 0.6em;
+            margin-top: 1em;
+        }
+
+    }
+}
+
+@media (min-device-width: 1000px) {
+    div#Card, div#ScorePage {
+        width: 1000px;
+    }
+}
+
+
+

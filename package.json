@@ -2,7 +2,8 @@
   "name": "dprk-test",
   "version": "0.0.1",
   "dependencies": {
-    "grunt-rsync": "^0.6.2"
+    "grunt-rsync": "^0.6.2",
+    "scss-lint": "0.0.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

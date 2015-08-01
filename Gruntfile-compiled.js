@@ -16,6 +16,7 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     grunt.loadNpmTasks('grunt-gh-pages');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
 
     // Define the configuration for all the tasks
     grunt.initConfig({

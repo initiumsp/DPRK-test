@@ -1,150 +1,102 @@
 body {
-    font-family: "LiHei Pro Medium", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    font-size: 3em;
-    width: 100%;
-    height: 100%;
-    background: url(../img/background.png) repeat;
-}
-
-input[type=checkbox] {
-    transform: scale(2.0);
-    -webkit-transform: scale(2.0);
-    vertical-align: text-top;
-    margin: 1em;
-}
-
-div#Card, div#ScorePage {
-    margin: 0 auto;
-    background-repeat: repeat;
-}
-
-div#questionTag {
-    font-size: 120%;
-    font-weight: 700;
-    margin-bottom: 0.5em;
-    color: #31AFBE;
-}
-
-span.Explanation {
-    line-height: 1.5;
-}
-
-@media (min-device-width: 1036px) {
-    div#Card, div#ScorePage {
-        width: 1036px;
-    }
-}
-
-button.share {
-    font-size: 1em;
-    display: block;
-    width: 12em;
+  font-family: "LiHei Pro Medium", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  font-size: 3em;
+  width: 100%;
+  height: 100%;
+  background: url(../img/background.png) repeat; }
+  body #Card div#Banner {
     text-align: center;
-    margin-bottom: 0.5em;
-}
-
-button.share img {
-    vertical-align: text-bottom;
-}
-
-div#Banner {
-    text-align: center;
-    width: 100%;
-}
-
-div#QuestionPanel {
+    width: 100%; }
+  body #Card div#QuestionPanel {
     height: 60%;
     padding: 1em 0.1em;
-    width: 100%;
-}
-
-div#AnswerPanel {
+    width: 100%; }
+    body #Card div#QuestionPanel div#questionTag {
+      font-size: 120%;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      color: #31AFBE; }
+    body #Card div#QuestionPanel div#questionText {
+      line-height: 1.5; }
+    body #Card div#QuestionPanel #OptionPanel div.optionBox {
+      margin-top: 1.0em; }
+      body #Card div#QuestionPanel #OptionPanel div.optionBox input[type=checkbox] {
+        transform: scale(2);
+        -webkit-transform: scale(2);
+        vertical-align: text-top;
+        margin: 1em; }
+      body #Card div#QuestionPanel #OptionPanel div.optionBox span.optionTag {
+        margin-right: 0.5em;
+        color: #FF0000; }
+      body #Card div#QuestionPanel #OptionPanel div.optionBox span.optionText {
+        font-size: 1.2em; }
+      body #Card div#QuestionPanel #OptionPanel div.optionBox span.optionTextWithImage {
+        font-size: 0.8em; }
+      body #Card div#QuestionPanel #OptionPanel div.optionBox span.CorrectnessSign-correct {
+        color: green; }
+      body #Card div#QuestionPanel #OptionPanel div.optionBox span.CorrectnessSign-wrong {
+        color: darkred; }
+      body #Card div#QuestionPanel #OptionPanel div.optionBox .optionBoxLeftContainer {
+        float: left;
+        width: 10%;
+        line-height: 0.8; }
+      body #Card div#QuestionPanel #OptionPanel div.optionBox .optionBoxRightContainer {
+        float: left;
+        width: 60%; }
+    body #Card div#QuestionPanel #OptionPanel div.optionBoxWithImage {
+      display: inline-block;
+      width: 45%;
+      margin-right: 5%; }
+    body #Card div#QuestionPanel #OptionPanel div.optionBoxWithImageWide {
+      width: 49%;
+      margin-right: 0; }
+    body #Card div#QuestionPanel img.insertImage {
+      float: right;
+      display: block;
+      height: 300px; }
+    body #Card div#QuestionPanel img.insertImageWide {
+      position: relative;
+      margin-left: 10%; }
+  body #Card div#AnswerPanel {
     height: 30%;
     width: 100%;
-    padding: 0.5em auto;
-}
+    padding: 0.5em auto; }
+  body #Card div.answerBox div.answerInnerBox {
+    text-align: center; }
+    body #Card div.answerBox div.answerInnerBox span.answerTag {
+      color: #FF0000; }
+  body #Card div.ExplanationBox {
+    padding: 10px; }
+    body #Card div.ExplanationBox span.Explanation {
+      line-height: 1.5; }
+    body #Card div.ExplanationBox button#next {
+      font-size: 1em;
+      border: 2px solid black;
+      background: white;
+      float: right;
+      margin-right: 10px; }
+  body #ScorePage {
+    margin: 0 auto;
+    background-repeat: repeat; }
+    body #ScorePage button.share {
+      font-size: 1em;
+      display: block;
+      width: 12em;
+      text-align: center;
+      margin-bottom: 0.5em; }
+      body #ScorePage button.share img {
+        vertical-align: text-bottom; }
+    body #ScorePage h1 {
+      margin-bottom: 0; }
+    body #ScorePage span {
+      margin-top: 0.5em; }
+    body #ScorePage #marketingInfobox {
+      font-size: 0.6em;
+      margin-top: 1em; }
 
-div.optionBox {
-    margin-top: 1.0em;
-}
+@media (min-device-width: 1000px) {
+  div#Card, div#ScorePage {
+    width: 1000px; } }
 
-
-span.optionTag {
-    margin-right: 0.5em;
-    color: red;
-}
-
-span.CorrectnessSign-correct {
-    color: green;
-}
-
-span.CorrectnessSign-wrong {
-    color: darkred;
-}
-
-button#next {
-    font-size: 1em;
-    border: 2px solid black;
-    background: white;
-    float: right;
-    margin-right: 10px;
-}
-
-div.optionBoxWithImage {
-    display: inline-block;
-    width: 45%;
-    margin-right: 5%;
-}
-
-div.optionBoxWithImageWide {
-    width: 49%;
-    margin-right: 0;
-}
-
-span.optionText {
-    font-size: 1.2em;
-}
-
-span.optionTextWithImage {
-    font-size: 0.8em;
-}
-
-img.insertImage {
-    float: right;
-    display: block;
-    height: 300px;
-}
-
-img.insertImageWide {
-    position: relative;
-    margin-left: 10%;
-}
-
-.optionBoxLeftContainer {
-    float: left;
-    width: 10%;
-    line-height: 0.8;
-}
-
-.optionBoxRightContainer {
-    float: left;
-    width: 60%;
-}
-
-div#questionText {
-    line-height: 1.5;
-}
-
-div#marketingInfobox {
-    font-size: 0.6em;
-    margin-top: 1em;
-}
-
-div#ScorePage h1 {
-    margin-bottom: 0;
-}
-
-div#ScorePage span {
-    margin-top: 0.5em;
-}
+/*# sourceMappingURL=main.css.map */
