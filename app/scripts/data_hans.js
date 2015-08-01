@@ -30,7 +30,7 @@ nkoreaTest.survey = [
   {
     "serial": 0,
     "questionTag": "数学题",
-    "questionText": "伟大的金正日将军领导的抗日游击队攻击日本军队，杀了18个日本兵，抓住了28个，跑掉了50个，一共有多少个日本兵？",
+    "questionText": "伟大的金日成将军领导的抗日游击队攻击日本军队，杀了18个日本兵，抓住了28个，跑掉了50个，一共有多少个日本兵？",
     "optionContainsImage": false,
     "options": [
       {"optionTag": "A", "optionText":"46"},
