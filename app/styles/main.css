@@ -62,13 +62,20 @@ body #Card #QuestionPanel #OptionPanel .optionBox label .optionTextWithImage {
   vertical-align: top;
   line-height: 1;
 }
+body #Card #QuestionPanel #OptionPanel .optionBox label .CorrectnessSign {
+  line-height: 100%;
+  font-size: 1.2em;
+}
+body #Card #QuestionPanel #OptionPanel .optionBox label .optionTextWithImage + .CorrectnessSign {
+  line-height: 100%;
+  font-size: 0.8em;
+  vertical-align: top;
+}
 body #Card #QuestionPanel #OptionPanel .optionBox label .CorrectnessSign-correct {
   color: green;
-  vertical-align: top;
 }
 body #Card #QuestionPanel #OptionPanel .optionBox label .CorrectnessSign-wrong {
   color: darkred;
-  vertical-align: top;
 }
 body #Card #QuestionPanel #OptionPanel .optionBox label .optionBoxLeftContainer {
   float: left;

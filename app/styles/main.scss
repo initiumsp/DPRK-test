@@ -77,14 +77,23 @@ body {
                             line-height: 1;
                         }
 
+                        .CorrectnessSign {
+                            line-height: 100%;
+                            font-size: 1.2em;
+                        }
+
+                        .optionTextWithImage + .CorrectnessSign {
+                            line-height: 100%;
+                            font-size: 0.8em;
+                            vertical-align: top;
+                        }
+
                         .CorrectnessSign-correct {
                             color: $correctAnswerSignColor;
-                            vertical-align: top;
                         }
 
                         .CorrectnessSign-wrong {
                             color: $wrongAnswerSignColor;
-                            vertical-align: top;
                         }
 
                         .optionBoxLeftContainer {
