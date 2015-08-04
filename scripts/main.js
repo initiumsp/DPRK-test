@@ -33,14 +33,18 @@ function post(keyToPost, valueToPost) {
   var url = "http://3cf586cb.ngrok.com/remember/dprktest2015/";
   var request = new XMLHttpRequest();
   var message = {
-    user: nkoreaTest.uuid,
+    username: nkoreaTest.uuid,
     key: keyToPost,
-    value: valueToPost
+    value: valueToPost,
+    raw: '',
+    datetime: Date.now()
   };
 
   request.open('POST', url, true);
   request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-  request.send(JSON.stringify(message));
+  var jsonString = JSON.stringify(message);
+  request.send(jsonString);
+  console.log('posted '+jsonString);
 }
 
 var Banner = React.createClass({displayName: "Banner",
@@ -174,6 +178,9 @@ var QuestionPanel = React.createClass({displayName: "QuestionPanel",
 var AnswerPanel = React.createClass({displayName: "AnswerPanel",
 
   handleNextButtonClick: function (event) {
+
+    post(nkoreaTest.Card.state.questionSerial.toString(), 'Next');
+
     //Show the next question
     nkoreaTest.Card.setState({
       questionSerial: nkoreaTest.Card.state.questionSerial + 1,
@@ -203,9 +210,6 @@ var AnswerPanel = React.createClass({displayName: "AnswerPanel",
       checkboxes[i].disabled = false;
     }
     nkoreaTest.Card.state.chosenOptionTag = null;
-
-    post(nkoreaTest.Card.state.questionSerial.toString(), 'Next')
-
   },
 
   render: function() {
@@ -268,6 +272,7 @@ var ScorePage = React.createClass({displayName: "ScorePage",
     var title = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
         url = encodeURIComponent(nkoreaTest.url);
     window.open('http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+nkoreaTest.url);
+    post('share', 'weibo');
   },
 
   shareToFacebook () {
@@ -280,6 +285,7 @@ var ScorePage = React.createClass({displayName: "ScorePage",
                 '&description=' + description +
                 '&redirect_uri=' + url
     );
+    post('share', 'facebook');
   },
 
   componentDidMount: function() {
@@ -324,3 +330,5 @@ React.render(
   //<ScorePage />,
   document.getElementById('content')
 );
+
+post('render', nkoreaTest.lang+'-rendered');
