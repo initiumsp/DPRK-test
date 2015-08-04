@@ -4,6 +4,7 @@ var nkoreaTest = {
   url: 'http://dprk-test.initiumdata.com',
   shareImgRelativePath: './img/screenshot.png',
   bannerImgRelativePath: './img/banner_hans.png',
+  lang: 'zh-hans',
 
   totalScore: 0,
   scorePerQuestion: 20,

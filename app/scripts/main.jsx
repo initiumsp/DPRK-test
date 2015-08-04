@@ -1,4 +1,5 @@
 nkoreaTest.setNewUUID = function() {
+
   // If localStorage contains an existing UUID, use it as the UUID of the app.
   // Otherwise, get a UUID from server.
 
@@ -32,14 +33,18 @@ function post(keyToPost, valueToPost) {
   var url = "http://3cf586cb.ngrok.com/remember/dprktest2015/";
   var request = new XMLHttpRequest();
   var message = {
-    user: nkoreaTest.uuid,
+    username: nkoreaTest.uuid,
     key: keyToPost,
-    value: valueToPost
+    value: valueToPost,
+    raw: '',
+    datetime: Date.now()
   };
 
   request.open('POST', url, true);
   request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-  request.send(JSON.stringify(message));
+  var jsonString = JSON.stringify(message);
+  request.send(jsonString);
+  console.log('posted '+jsonString);
 }
 
 var Banner = React.createClass({
@@ -87,7 +92,7 @@ var QuestionPanel = React.createClass({
       sign = '✕';
     }
 
-    //Set color
+    //Set color by adding class
     var correctnessSignDOMNodes = document.getElementsByClassName('CorrectnessSign');
     if (sign === '✓') {
       for (i=0; i<correctnessSignDOMNodes.length; i+=1) {
@@ -123,7 +128,7 @@ var QuestionPanel = React.createClass({
                        name={option.optionTag}
                        onChange={this.handleCheckboxClick.bind(this, option.optionTag)}
                        className="checkbox"
-                    />
+                />
                 <span className="optionTag">{option.optionTag}</span>
               </div>
               <img src={option.imagePath} className="insertImage"/>
@@ -173,6 +178,9 @@ var QuestionPanel = React.createClass({
 var AnswerPanel = React.createClass({
 
   handleNextButtonClick: function (event) {
+
+    post(nkoreaTest.Card.state.questionSerial.toString(), 'Next');
+
     //Show the next question
     nkoreaTest.Card.setState({
       questionSerial: nkoreaTest.Card.state.questionSerial + 1,
@@ -202,9 +210,6 @@ var AnswerPanel = React.createClass({
       checkboxes[i].disabled = false;
     }
     nkoreaTest.Card.state.chosenOptionTag = null;
-
-    post(nkoreaTest.Card.state.questionSerial.toString(), 'Next')
-
   },
 
   render: function() {
@@ -267,9 +272,10 @@ var ScorePage = React.createClass({
     var title = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
         url = encodeURIComponent(nkoreaTest.url);
     window.open('http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+nkoreaTest.url);
+    post('share', 'weibo');
   },
 
-  shareToFacebook () {
+  shareToFacebook: function () {
     var description = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
         url = encodeURIComponent(nkoreaTest.url);
     window.open('https://www.facebook.com/dialog/feed?app_id=743206445788490+' +
@@ -279,6 +285,7 @@ var ScorePage = React.createClass({
                 '&description=' + description +
                 '&redirect_uri=' + url
     );
+    post('share', 'facebook');
   },
 
   componentDidMount: function() {
@@ -324,3 +331,4 @@ React.render(
   document.getElementById('content')
 );
 
+post('render', nkoreaTest.lang+'-rendered');
