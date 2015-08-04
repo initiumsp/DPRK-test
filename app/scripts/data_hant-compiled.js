@@ -13,6 +13,7 @@ var nkoreaTest = {
 
 nkoreaTest.text = {
   answerLabel: "答案:",
+  linkLabel: "新時代的北韓年輕人",
   nextButtonLabel: "下一題！",
   scoreDescription: "我在當代朝鮮各科知識模擬測試獲得了",
   shareHint: "分，你們誰能打贏我？",
@@ -20,7 +21,7 @@ nkoreaTest.text = {
   facebookShareButtonText: "分享到Facebook",
   ShareToWeiboText: "分享到新浪微博",
   lastButtonLabel: "看我幾分!",
-  marketingInfoboxInnerHTML: "<span style=\"color: red\"><strong>「端」APP：</strong>" + "<a href=\"https://theinitium.com/download/\" style=\"color: red\">https://theinitium.com/download</a></span>" + "<br />" + "<strong>「端」網：</strong><a href=\"http://theinitum.com\">theinitum.com</a>" + "<br />" + "<strong>「端」報：</strong>香港發行，逢週五出版" + "<br />" + "<strong>端app：（中國內地用戶）</strong><a href=\"https://theinitium.com/download/?force_cn=true\">https://theinitium.com/download/?force_cn=true</a>"
+  marketingInfoboxInnerHTML: "<span style=\"color: red\"><strong>「端」APP：</strong>" + "<a href=\"https://theinitium.com/download/\" style=\"color: red\">https://theinitium.com/download</a></span>" + "<br />" + "<strong>「端」網：</strong><a href=\"https://theinitium.com/\">theinitum.com</a>" + "<br />" + "<strong>「端」報：</strong>香港發行，逢週五出版" + "<br />" + "<strong>端app：（中國內地用戶）</strong><a href=\"https://theinitium.com/download/?force_cn=true\">https://theinitium.com/download/?force_cn=true</a>"
 };
 
 nkoreaTest.survey = [{

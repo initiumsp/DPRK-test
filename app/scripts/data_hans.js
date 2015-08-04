@@ -11,6 +11,7 @@ var nkoreaTest = {
 
 nkoreaTest.text = {
     answerLabel: "答案:",
+    linkLabel: "新时代的北韩年轻人",
     nextButtonLabel: "下一题！",
     scoreDescription: "我在当代朝鲜各科知识模拟测试获得了",
     shareHint: "分，你们谁能打赢我？",
@@ -22,7 +23,7 @@ nkoreaTest.text = {
     '<span style="color: red"><strong>「端」APP：</strong>' +
     '<a href="https://theinitium.com/download/" style="color: red">https://theinitium.com/download</a></span>' +
     '<br />' +
-    '<strong>「端」网：</strong><a href="http://theinitum.com">theinitum.com</a>' +
+    '<strong>「端」网：</strong><a href="https://theinitium.com/">theinitum.com</a>' +
     '<br />' +
     '<strong>「端」报：</strong>香港发行，逢周五出版' + '<br />' +
     '<strong>端app：（中国内地用户）</strong><a href="https://theinitium.com/download/?force_cn=true">https://theinitium.com/download/?force_cn=true</a>'

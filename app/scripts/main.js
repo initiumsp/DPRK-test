@@ -223,14 +223,6 @@ var ScorePage = React.createClass({
   shareToFacebook () {
       var description = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
           url = encodeURIComponent(nkoreaTest.url);
-      console.log('https://www.facebook.com/dialog/feed?app_id=743206445788490+' +
-          '&link=' + url +
-          '&picture=' + nkoreaTest.shareImgRelativePath +
-          '&name=Hahaha' +
-          '&caption=%20' +
-          '&description=Oh' +
-          '&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F'
-      );
       window.open('https://www.facebook.com/dialog/feed?app_id=743206445788490+' +
                   '&link=' + url +
                   '&picture=' + nkoreaTest.url + nkoreaTest.shareImgRelativePath +
@@ -262,7 +254,10 @@ var ScorePage = React.createClass({
               {nkoreaTest.text.ShareToWeiboText}
           </button>
 
-          <div className='fulltextRecommendation'>{nkoreaTest.text.fulltextRecommendation}<a href=".">鏈接（假）</a></div>
+          <div className='fulltextRecommendation'>
+              {nkoreaTest.text.fulltextRecommendation}
+              <a href="https://theinitium.com/project/20150803-dprk-youth/">{nkoreaTest.text.linkLabel}</a>
+          </div>
           <div id='marketingInfobox'>
           </div>
 
@@ -278,4 +273,3 @@ React.render(
     //<ScorePage />,
     document.getElementById('content')
 );
-

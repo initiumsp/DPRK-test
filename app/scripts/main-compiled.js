@@ -278,7 +278,6 @@ var ScorePage = React.createClass({
     shareToFacebook: function shareToFacebook() {
         var description = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
             url = encodeURIComponent(nkoreaTest.url);
-        console.log("https://www.facebook.com/dialog/feed?app_id=743206445788490+" + "&link=" + url + "&picture=" + nkoreaTest.shareImgRelativePath + "&name=Hahaha" + "&caption=%20" + "&description=Oh" + "&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F");
         window.open("https://www.facebook.com/dialog/feed?app_id=743206445788490+" + "&link=" + url + "&picture=" + nkoreaTest.url + nkoreaTest.shareImgRelativePath + "&name=" + nkoreaTest.title + "&description=" + description + "&redirect_uri=" + url);
     },
 
@@ -323,8 +322,8 @@ var ScorePage = React.createClass({
                 nkoreaTest.text.fulltextRecommendation,
                 React.createElement(
                     "a",
-                    { href: "." },
-                    "鏈接（假）"
+                    { href: "https://theinitium.com/project/20150803-dprk-youth/" },
+                    nkoreaTest.text.linkLabel
                 )
             ),
             React.createElement("div", { id: "marketingInfobox" })
