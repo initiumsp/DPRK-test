@@ -1,7 +1,7 @@
 var nkoreaTest = {
   codeName: "DPRK-test",
   title: "朝鲜新知识模拟考试",
-  url: 'http://dprktest.initiumdata.com',
+  url: 'http://dprktest.initiumdata.com/',
   shareImgRelativePath: './img/screenshot.png',
   bannerImgRelativePath: './img/banner_hans.png',
   lang: 'zh-hans',
