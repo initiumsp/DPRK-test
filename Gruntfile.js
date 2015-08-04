@@ -260,8 +260,8 @@ module.exports = function (grunt) {
          uglify: {
              dist: {
                  files: {
-                     '<%= yeoman.dist %>/scripts/main-compiled.js': [
-                         '<%= yeoman.dist %>/scripts/main-compiled.js'
+                     '<%= yeoman.dist %>/scripts/main.js': [
+                         '<%= yeoman.dist %>/scripts/main.js'
                      ]
                  }
              }
@@ -283,7 +283,7 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'img/*',
                         'bower_components/react/*',
-                        'scripts/*-compiled.js',
+                        'scripts/*.js',
                         'styles/*',
                         'index*.html',
                         'CNAME'
