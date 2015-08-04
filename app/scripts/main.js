@@ -2,7 +2,7 @@ var Banner = React.createClass({
   render: function() {
     return (
         <div id="Banner">
-          <img id="BannerImage" src="img/banner.png" />
+          <img id="BannerImage" src={bannerImgRelativePath} />
         </div>
     );
   }
