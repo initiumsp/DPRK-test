@@ -234,7 +234,7 @@ var ScorePage = React.createClass({
       window.open('https://www.facebook.com/dialog/feed?app_id=743206445788490+' +
                   '&link=' + url +
                   '&picture=' + nkoreaTest.url + nkoreaTest.shareImgRelativePath +
-                  '&name=' + "朝鮮新知識模擬考試" +
+                  '&name=' + nkoreaTest.title +
                   '&description=' + description +
                   '&redirect_uri=' + url
       );

@@ -279,7 +279,7 @@ var ScorePage = React.createClass({
         var description = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
             url = encodeURIComponent(nkoreaTest.url);
         console.log("https://www.facebook.com/dialog/feed?app_id=743206445788490+" + "&link=" + url + "&picture=" + nkoreaTest.shareImgRelativePath + "&name=Hahaha" + "&caption=%20" + "&description=Oh" + "&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F");
-        window.open("https://www.facebook.com/dialog/feed?app_id=743206445788490+" + "&link=" + url + "&picture=" + nkoreaTest.url + nkoreaTest.shareImgRelativePath + "&name=" + "朝鮮新知識模擬考試" + "&description=" + description + "&redirect_uri=" + url);
+        window.open("https://www.facebook.com/dialog/feed?app_id=743206445788490+" + "&link=" + url + "&picture=" + nkoreaTest.url + nkoreaTest.shareImgRelativePath + "&name=" + nkoreaTest.title + "&description=" + description + "&redirect_uri=" + url);
     },
 
     componentDidMount: function componentDidMount() {
