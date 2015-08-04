@@ -229,8 +229,8 @@ var AnswerPanel = React.createClass({
           <span className="Explanation">{this.props.data.ExplanationText}</span>
           <button id="next" onClick={this.handleNextButtonClick}>
             {nkoreaTest.Card.state.lastQuestion ?
-                nkoreaTest.text.lastButtonLabel:
-                nkoreaTest.text.nextButtonLabel}
+              nkoreaTest.text.lastButtonLabel:
+              nkoreaTest.text.nextButtonLabel}
           </button>
         </div>
       </div>
