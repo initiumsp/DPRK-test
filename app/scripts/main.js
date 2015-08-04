@@ -256,10 +256,11 @@ var ScorePage = React.createClass({
 
           <div className='fulltextRecommendation'>
               {nkoreaTest.text.fulltextRecommendation}
-              <a href="https://theinitium.com/project/20150803-dprk-youth/">{nkoreaTest.text.linkLabel}</a>
+              <a href="https://theinitium.com/project/20150803-dprk-youth/" target="_blank">
+                  {nkoreaTest.text.linkLabel}
+              </a>
           </div>
-          <div id='marketingInfobox'>
-          </div>
+          <div id='marketingInfobox'></div>
 
         </div>
     );

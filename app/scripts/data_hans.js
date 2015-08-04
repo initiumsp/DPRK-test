@@ -21,12 +21,15 @@ nkoreaTest.text = {
     lastButtonLabel : "看我几分!",
     marketingInfoboxInnerHTML:
     '<span style="color: red"><strong>「端」APP：</strong>' +
-    '<a href="https://theinitium.com/download/" style="color: red">https://theinitium.com/download</a></span>' +
+    '<a href="https://theinitium.com/download/" style="color: red" target="_blank">https://theinitium.com/download</a>' +
+    '</span>' +
     '<br />' +
-    '<strong>「端」网：</strong><a href="https://theinitium.com/">theinitum.com</a>' +
+    '<strong>「端」网：</strong><a href="https://theinitium.com/" target="_blank">theinitum.com</a>' +
     '<br />' +
     '<strong>「端」报：</strong>香港发行，逢周五出版' + '<br />' +
-    '<strong>端app：（中国内地用户）</strong><a href="https://theinitium.com/download/?force_cn=true">https://theinitium.com/download/?force_cn=true</a>'
+    '<strong>端app：（中国内地用户）</strong>' +
+    '<a href="https://theinitium.com/download/?force_cn=true" target="_blank">' +
+    'https://theinitium.com/download/?force_cn=true</a>'
 };
 
 nkoreaTest.survey = [

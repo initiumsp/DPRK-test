@@ -322,7 +322,7 @@ var ScorePage = React.createClass({
                 nkoreaTest.text.fulltextRecommendation,
                 React.createElement(
                     "a",
-                    { href: "https://theinitium.com/project/20150803-dprk-youth/" },
+                    { href: "https://theinitium.com/project/20150803-dprk-youth/", target: "_blank" },
                     nkoreaTest.text.linkLabel
                 )
             ),
