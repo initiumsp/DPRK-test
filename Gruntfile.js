@@ -38,7 +38,7 @@ module.exports = function (grunt) {
                     ignoreMTime:  false // Default
                 },
                 files: {
-                    '<%= yeoman.app %>/scripts': '<%= yeoman.app %>/scripts'
+                  'app/scripts/main.js': 'app/scripts/main.jsx'
                 }
             },
         },
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js']
             },
             react: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.scripts'],
+                files: ['app/scripts/main.jsx'],
                 tasks: ['react:app']
             },
             css: {
