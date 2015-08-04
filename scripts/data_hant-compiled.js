@@ -13,6 +13,7 @@ var nkoreaTest = {
 
 nkoreaTest.text = {
   answerLabel: "答案:",
+  linkLabel: "新時代的北韓年輕人",
   nextButtonLabel: "下一題！",
   scoreDescription: "我在當代朝鮮各科知識模擬測試獲得了",
   shareHint: "分，你們誰能打贏我？",
