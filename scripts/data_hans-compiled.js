@@ -21,7 +21,7 @@ nkoreaTest.text = {
   facebookShareButtonText: "分享到Facebook",
   ShareToWeiboText: "分享到新浪微博",
   lastButtonLabel: "看我几分!",
-  marketingInfoboxInnerHTML: "<span style=\"color: red\"><strong>「端」APP：</strong>" + "<a href=\"https://theinitium.com/download/\" style=\"color: red\">https://theinitium.com/download</a></span>" + "<br />" + "<strong>「端」网：</strong><a href=\"http://theinitum.com\">theinitum.com</a>" + "<br />" + "<strong>「端」报：</strong>香港发行，逢周五出版" + "<br />" + "<strong>端app：（中国内地用户）</strong><a href=\"https://theinitium.com/download/?force_cn=true\">https://theinitium.com/download/?force_cn=true</a>"
+  marketingInfoboxInnerHTML: "<span style=\"color: red\"><strong>「端」APP：</strong>" + "<a href=\"https://theinitium.com/download/\" style=\"color: red\">https://theinitium.com/download</a></span>" + "<br />" + "<strong>「端」网：</strong><a href=\"https://theinitium.com/\">theinitum.com</a>" + "<br />" + "<strong>「端」报：</strong>香港发行，逢周五出版" + "<br />" + "<strong>端app：（中国内地用户）</strong><a href=\"https://theinitium.com/download/?force_cn=true\">https://theinitium.com/download/?force_cn=true</a>"
 };
 
 nkoreaTest.survey = [{
