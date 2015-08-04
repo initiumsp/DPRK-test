@@ -30,7 +30,7 @@ nkoreaTest.setNewUUID = function() {
 
 function post(keyToPost, valueToPost) {
   "use strict";
-  var url = "http://3cf586cb.ngrok.com/remember/dprktest2015/";
+  var url = "http://s.init.im:8081/remember/dprktest2015/";
   var request = new XMLHttpRequest();
   var message = {
     username: nkoreaTest.uuid,
@@ -44,7 +44,7 @@ function post(keyToPost, valueToPost) {
   request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
   var jsonString = JSON.stringify(message);
   request.send(jsonString);
-  console.log('posted '+jsonString);
+  console.log('tried to post '+jsonString);
 }
 
 var Banner = React.createClass({
