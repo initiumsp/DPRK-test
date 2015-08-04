@@ -2,8 +2,8 @@ var nkoreaTest = {
   codeName: "DPRK-test",
   title: "朝鮮新知識模擬考試",
   url: 'http://dprk-test.initiumdata.com',
-  shareImgRelativePath: '/img/screenshot.png',
-  bannerImgRelativePath: '/img/banner_hant.png',
+  shareImgRelativePath: './img/screenshot.png',
+  bannerImgRelativePath: './img/banner_hant.png',
 
   totalScore: 0,
   scorePerQuestion: 20,

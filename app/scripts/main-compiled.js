@@ -7,7 +7,7 @@ var Banner = React.createClass({
         return React.createElement(
             "div",
             { id: "Banner" },
-            React.createElement("img", { id: "BannerImage", src: "img/banner_hans.png" })
+            React.createElement("img", { id: "BannerImage", src: nkoreaTest.bannerImgRelativePath })
         );
     }
 });

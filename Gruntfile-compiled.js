@@ -34,13 +34,13 @@ module.exports = function (grunt) {
         react: {
             app: {
                 options: {
-                    extension:    'scripts',  // Default
-                    ignoreMTime:  false // Default
+                    extension: 'scripts', // Default
+                    ignoreMTime: false // Default
                 },
                 files: {
                     '<%= yeoman.app %>/scripts': '<%= yeoman.app %>/scripts'
                 }
-            },
+            }
         },
 
         // Watches files for changes and runs tasks based on the changed files
@@ -54,18 +54,13 @@ module.exports = function (grunt) {
             },
             css: {
                 files: ['**/*.scss'],
-                tasks: ['sass'],
+                tasks: ['sass']
             },
             livereload: {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 },
-                files: [
-                    '<%= yeoman.app %>/*.html',
-                    '.tmp/styles/{,*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-                    '<%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
-                ]
+                files: ['<%= yeoman.app %>/*.html', '.tmp/styles/{,*/}*.css', '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js', '<%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}']
             }
         },
 
@@ -80,19 +75,12 @@ module.exports = function (grunt) {
             livereload: {
                 options: {
                     open: true,
-                    base: [
-                        '.tmp',
-                        '<%= yeoman.app %>'
-                    ]
+                    base: ['.tmp', '<%= yeoman.app %>']
                 }
             },
             test: {
                 options: {
-                    base: [
-                        '.tmp',
-                        'test',
-                        '<%= yeoman.app %>'
-                    ]
+                    base: ['.tmp', 'test', '<%= yeoman.app %>']
                 }
             },
             dist: {
@@ -109,11 +97,7 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     dot: true,
-                    src: [
-                        '.tmp',
-                        '<%= yeoman.dist %>/*',
-                        '!<%= yeoman.dist %>/.git*'
-                    ]
+                    src: ['.tmp', '<%= yeoman.dist %>/*', '!<%= yeoman.dist %>/.git*']
                 }]
             },
             server: '.tmp'
@@ -125,14 +109,8 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc',
                 reporter: require('jshint-stylish')
             },
-            all: [
-                'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
-                'test/spec/{,*/}*.js'
-            ]
+            all: ['Gruntfile.js', '<%= yeoman.app %>/scripts/{,*/}*.js', '!<%= yeoman.app %>/scripts/vendor/*', 'test/spec/{,*/}*.js']
         },
-
 
         // Mocha testing framework configuration options
         mocha: {
@@ -143,8 +121,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-
-
 
         // Add vendor prefixed styles
         autoprefixer: {
@@ -173,12 +149,7 @@ module.exports = function (grunt) {
         rev: {
             dist: {
                 files: {
-                    src: [
-                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{gif,jpeg,jpg,png,webp}',
-                        '<%= yeoman.dist %>/styles/fonts/{,*/}*.*'
-                    ]
+                    src: ['<%= yeoman.dist %>/scripts/{,*/}*.js', '<%= yeoman.dist %>/styles/{,*/}*.css', '<%= yeoman.dist %>/images/{,*/}*.{gif,jpeg,jpg,png,webp}', '<%= yeoman.dist %>/styles/fonts/{,*/}*.*']
                 }
             }
         },
@@ -225,16 +196,7 @@ module.exports = function (grunt) {
         },
         htmlmin: {
             dist: {
-                options: {
-                    // removeCommentsFromCDATA: true,
-                    // collapseWhitespace: true,
-                    // collapseBooleanAttributes: true,
-                    // removeAttributeQuotes: true,
-                    // removeRedundantAttributes: true,
-                    // useShortDoctype: true,
-                    // removeEmptyAttributes: true,
-                    // removeOptionalTags: true
-                },
+                options: {},
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
@@ -257,18 +219,16 @@ module.exports = function (grunt) {
         //         }
         //     }
         // },
-         uglify: {
-             dist: {
-                 files: {
-                     '<%= yeoman.dist %>/scripts/main-compiled.js': [
-                         '<%= yeoman.dist %>/scripts/main-compiled.js'
-                     ]
-                 }
-             }
-         },
-         concat: {
-             dist: {}
-         },
+        uglify: {
+            dist: {
+                files: {
+                    '<%= yeoman.dist %>/scripts/main-compiled.js': ['<%= yeoman.dist %>/scripts/main-compiled.js']
+                }
+            }
+        },
+        concat: {
+            dist: {}
+        },
 
         // Copies remaining files to places other tasks can use
         copy: {
@@ -278,16 +238,7 @@ module.exports = function (grunt) {
                     dot: true,
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
-                    src: [
-                        '*.{ico,png,txt}',
-                        '.htaccess',
-                        'img/*',
-                        'bower_components/react/*',
-                        'scripts/*-compiled.js',
-                        'styles/*',
-                        'index*.html',
-                        'CNAME'
-                    ]
+                    src: ['*.{ico,png,txt}', '.htaccess', 'img/*', 'bower_components/react/*', 'scripts/*-compiled.js', 'styles/*', 'index*.html', 'CNAME']
                 }]
             },
             styles: {
@@ -301,19 +252,9 @@ module.exports = function (grunt) {
 
         // Run some tasks in parallel to speed up build process
         concurrent: {
-            server: [
-                'copy:styles'
-            ],
-            test: [
-                'copy:styles'
-            ],
-            dist: [
-                'copy:styles',
-                'react:app',
-                'imagemin',
-                'svgmin',
-                'htmlmin'
-            ]
+            server: ['copy:styles'],
+            test: ['copy:styles'],
+            dist: ['copy:styles', 'react:app', 'imagemin', 'svgmin', 'htmlmin']
         },
 
         // deploy to GitHub pages
@@ -327,30 +268,29 @@ module.exports = function (grunt) {
         },
 
         rsync: {
-          options: {
-            args: ["--verbose"],
-            exclude: [".git*","*.scss","node_modules"],
-            recursive: true
-          },
-          showcase: {
             options: {
-              src: "./dist/",
-              dest: "/home/vagrant/web/DPRK-test",
-              host: "showcase",
-              delete: true // Careful this option could cause data loss, read the docs!
+                args: ['--verbose'],
+                exclude: ['.git*', '*.scss', 'node_modules'],
+                recursive: true
+            },
+            showcase: {
+                options: {
+                    src: './dist/',
+                    dest: '/home/vagrant/web/DPRK-test',
+                    host: 'showcase',
+                    'delete': true // Careful this option could cause data loss, read the docs!
+                }
             }
-          }
         },
 
-        sass: {                              // Task
-          dist: {                            // Target
-            options: {                       // Target options
-              style: 'expanded'
-            },
-            files: {                         // Dictionary of files
-              'app/styles/main.css': 'app/styles/main.scss',       // 'destination': 'source'
+        sass: { // Task
+            dist: { // Target
+                options: { // Target options
+                    style: 'expanded'
+                },
+                files: { // Dictionary of files
+                    'app/styles/main.css': 'app/styles/main.scss' }
             }
-          }
         }
 
     });
@@ -360,40 +300,26 @@ module.exports = function (grunt) {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
 
-        grunt.task.run([
-            'clean:server',
-            'react',
-            'concurrent:server',
-            'autoprefixer',
-            'connect:livereload',
-            'watch'
-        ]);
+        grunt.task.run(['clean:server', 'react', 'concurrent:server', 'autoprefixer', 'connect:livereload', 'watch']);
     });
 
-    grunt.registerTask('test', [
-        'clean:server',
-        'react',
-        'concurrent:test',
-        'autoprefixer',
-        'connect:test',
-        'mocha'
-    ]);
+    grunt.registerTask('test', ['clean:server', 'react', 'concurrent:test', 'autoprefixer', 'connect:test', 'mocha']);
 
-    grunt.registerTask('build', [
-        'clean:dist',
-        'react',
-        'copy:dist',
-    ]);
+    grunt.registerTask('build', ['clean:dist', 'react', 'copy:dist']);
 
-    grunt.registerTask('deploy', [
-        'rsync',
-        'gh-pages'
-    ]);
+    grunt.registerTask('deploy', ['rsync', 'gh-pages']);
 
-    grunt.registerTask('default', [
-        'build',
-        'uglify',
-        'gh-pages',
-        'rsync',
-    ]);
+    grunt.registerTask('default', ['build', 'uglify', 'gh-pages', 'rsync']);
 };
+
+// removeCommentsFromCDATA: true,
+// collapseWhitespace: true,
+// collapseBooleanAttributes: true,
+// removeAttributeQuotes: true,
+// removeRedundantAttributes: true,
+// useShortDoctype: true,
+// removeEmptyAttributes: true,
+// removeOptionalTags: true
+// 'destination': 'source'
+
+//# sourceMappingURL=Gruntfile-compiled.js.map
