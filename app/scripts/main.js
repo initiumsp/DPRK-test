@@ -336,8 +336,8 @@ var ScorePage = React.createClass({displayName: "ScorePage",
 document.title = nkoreaTest.title;
 nkoreaTest.setNewUUID();
 React.render(
-  //<Card surveyData={nkoreaTest.survey} />,
-  React.createElement(ScorePage, null),
+  React.createElement(Card, {surveyData: nkoreaTest.survey}),
+  //<ScorePage />,
   document.getElementById('content')
 );
 

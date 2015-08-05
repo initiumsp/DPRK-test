@@ -286,7 +286,7 @@ var ScorePage = React.createClass({
   shareToFacebook: function () {
     var description = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
       url = encodeURIComponent(nkoreaTest.url);
-    window.open('https://www.facebook.com/dialog/feed?app_id=743206445788490+' +
+    window.open('https://www.facebook.com/dialog/feed?app_id=743206445788490' +
       '&link=' + url +
         //'&picture=' + nkoreaTest.url + nkoreaTest.shareImgRelativePath +
       '&name=' + nkoreaTest.title +
