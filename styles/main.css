@@ -152,6 +152,7 @@ body #ScorePage .ShareDiv {
 }
 body #ScorePage .ShareDiv img {
   vertical-align: text-bottom;
+  margin-right: 10px;
 }
 body #ScorePage h1 {
   margin-bottom: 0;
