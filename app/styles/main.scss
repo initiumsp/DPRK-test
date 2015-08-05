@@ -194,15 +194,14 @@ body {
         background-repeat: repeat;
         padding: 5px;
 
-        button.share {
+        .ShareDiv {
             font-size: 1em;
             display: block;
-            width: 12em;
-            text-align: center;
             margin-bottom: 0.5em;
 
             img {
                 vertical-align: text-bottom;
+                margin-right: 10px;
             }
         }
 

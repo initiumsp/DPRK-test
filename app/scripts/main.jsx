@@ -282,17 +282,25 @@ var ScorePage = React.createClass({
     post('share', 'weibo');
   },
 
-  shareToFacebook: function () {
-    var description = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
-        url = encodeURIComponent(nkoreaTest.url);
-    window.open('https://www.facebook.com/dialog/feed?app_id=743206445788490+' +
-                '&link=' + url +
-                //'&picture=' + nkoreaTest.url + nkoreaTest.shareImgRelativePath +
-                '&name=' + nkoreaTest.title +
-                '&description=' + description +
-                '&redirect_uri=' + url
-    );
+  getWeiboHref: function() {
+    post('share', 'weibo');
+    var title = encodeURIComponent(nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint),
+        url = encodeURIComponent(nkoreaTest.url),
+        shareURL ='http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+nkoreaTest.url;
+    return shareURL;
+  },
+
+  getFacebookHref: function() {
     post('share', 'facebook');
+    var description = nkoreaTest.text.scoreDescription + nkoreaTest.totalScore.toString() + nkoreaTest.text.shareHint,
+      url = nkoreaTest.url,
+      shareURL = 'https://www.facebook.com/dialog/feed?app_id=743206445788490+' +
+        '&link=' + url +
+          //'&picture=' + nkoreaTest.url + nkoreaTest.shareImgRelativePath +
+        '&name=' + nkoreaTest.title +
+        '&description=' + description +
+        '&redirect_uri=' + url;
+    return shareURL;
   },
 
   componentDidMount: function() {
@@ -306,16 +314,18 @@ var ScorePage = React.createClass({
         <Banner />
         <h1>你的總分是：{nkoreaTest.totalScore}</h1>
         <p>{comment}</p>
-        <button className="share Facebook-Share-btn"
-                onClick={this.shareToFacebook}>
+        <div className="ShareDiv">
           <img src="img/FB-f-Logo__blue_50.png" />
-          {nkoreaTest.text.facebookShareButtonText}
-        </button>
-        <button className="share Weibo-Share-btn"
-                onClick={this.shareToWeibo}>
+          <a href={this.getFacebookHref()} target="_blank">
+            {nkoreaTest.text.facebookShareButtonText}
+          </a>
+        </div>
+        <div className="ShareDiv">
           <img src="img/weibo_48x48.png" />
-          {nkoreaTest.text.ShareToWeiboText}
-        </button>
+          <a href={this.getWeiboHref()} target="_blank">
+            {nkoreaTest.text.ShareToWeiboText}
+          </a>
+        </div>
 
         <div className='fulltextRecommendation'>
           {nkoreaTest.text.fulltextRecommendation}
@@ -323,6 +333,7 @@ var ScorePage = React.createClass({
             {nkoreaTest.text.linkLabel}
           </a>
         </div>
+
         <div id='marketingInfobox'></div>
 
       </div>
@@ -333,8 +344,8 @@ var ScorePage = React.createClass({
 document.title = nkoreaTest.title;
 nkoreaTest.setNewUUID();
 React.render(
-  <Card surveyData={nkoreaTest.survey} />,
-  //<ScorePage />,
+  //<Card surveyData={nkoreaTest.survey} />,
+  <ScorePage />,
   document.getElementById('content')
 );
 
