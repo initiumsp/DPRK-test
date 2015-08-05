@@ -145,14 +145,15 @@ body #ScorePage {
   background-repeat: repeat;
   padding: 5px;
 }
-body #ScorePage .ShareDiv {
+body #ScorePage button.share {
   font-size: 1em;
   display: block;
+  width: 12em;
+  text-align: center;
   margin-bottom: 0.5em;
 }
-body #ScorePage .ShareDiv img {
+body #ScorePage button.share img {
   vertical-align: text-bottom;
-  margin-right: 10px;
 }
 body #ScorePage h1 {
   margin-bottom: 0;
