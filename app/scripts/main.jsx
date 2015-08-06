@@ -308,14 +308,12 @@ var ScorePage = React.createClass({
         <h1>你的總分是：{nkoreaTest.totalScore}</h1>
         <p>{comment}</p>
         <button className="share Facebook-Share-btn"
-                onClick={this.shareToFacebook}
-                className="share">
+                onClick={this.shareToFacebook}>
           <img src="img/FB-f-Logo__blue_50.png" />
           {nkoreaTest.text.facebookShareButtonText}
         </button>
         <button className="share Weibo-Share-btn"
-                onClick={this.shareToWeibo}
-                className="share">
+                onClick={this.shareToWeibo}>
           <img src="img/weibo_48x48.png" />
           {nkoreaTest.text.ShareToWeiboText}
         </button>
