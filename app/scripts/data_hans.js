@@ -14,6 +14,7 @@ nkoreaTest.text = {
     answerLabel: "答案:",
     linkLabel: "新时代的北韩年轻人",
     nextButtonLabel: "下一题！",
+    totalScoreLabel: "你的总分是:",
     scoreDescription: "我在当代朝鲜各科知识模拟测试获得了",
     shareHint: "分，你们谁能打赢我？",
     fulltextRecommendation: "点击阅读脱北青年独家专访，看一个社会价值重塑、青年寻找自我的现代朝鲜。文章链接：",
@@ -28,9 +29,9 @@ nkoreaTest.text = {
     '<strong>「端」网：</strong><a href="https://theinitium.com/" target="_blank">theinitum.com</a>' +
     '<br />' +
     '<strong>「端」报：</strong>香港发行，逢周五出版' + '<br />' +
-    '<strong>端app：（中国内地用户）</strong>' +
-    '<a href="https://theinitium.com/download/?force_cn=true&utm_source=initium&utm_medium=social&utm_campaign=20150806-dprk_test" target="_blank">' +
-    'https://theinitium.com/download/?force_cn=true</a>'
+    '<strong>端App (中国內地用戶): Android 和 IOS :</strong>' +
+    '<a href="http://fir.im/initium/?force_cn=true&utm_source=initium&utm_medium=social&utm_campaign=20150806-dprk_test" target="_blank">' +
+    'http://fir.im/initium</a>'
 };
 
 nkoreaTest.survey = [
@@ -86,7 +87,7 @@ nkoreaTest.survey = [
       {"optionTag": "D", "optionText":"毫无压力，以上皆可"}
     ],
     "correctOptionTag": "D",
-    "ExplanationText": "朝鲜自产平板电脑约200美元，预装领袖历史、思想一类电子书，可玩游戏。朝鲜青年主要用平板电脑看电影和电视剧，在中朝两地走私的26岁的李铁平（化名）透露，朋友间也流行咸书和成人电影，要小心防止警察查到。"
+    "ExplanationText": "朝鲜自产平板电脑约200美元，预装领袖历史、思想一类电子书，可玩游戏。朝鲜青年主要用平板电脑看电影和电视剧，在中朝两地走私的26岁的李铁平（化名）透露，朋友间也流行成人书籍和成人电影，要小心防止警察查到。"
   },
   {
     "serial": 4,

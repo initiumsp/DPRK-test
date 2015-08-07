@@ -305,7 +305,7 @@ var ScorePage = React.createClass({
     return (
       <div id="ScorePage">
         <Banner />
-        <h1>你的總分是：{nkoreaTest.totalScore}</h1>
+        <h1>{nkoreaTest.text.totalScoreLabel} {nkoreaTest.totalScore}</h1>
         <p>{comment}</p>
         <button className="share Facebook-Share-btn"
                 onClick={this.shareToFacebook}>

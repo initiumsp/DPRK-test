@@ -305,7 +305,7 @@ var ScorePage = React.createClass({displayName: "ScorePage",
     return (
       React.createElement("div", {id: "ScorePage"}, 
         React.createElement(Banner, null), 
-        React.createElement("h1", null, "你的總分是：", nkoreaTest.totalScore), 
+        React.createElement("h1", null, nkoreaTest.text.totalScoreLabel, " ", nkoreaTest.totalScore), 
         React.createElement("p", null, comment), 
         React.createElement("button", {className: "share Facebook-Share-btn", 
                 onClick: this.shareToFacebook}, 
