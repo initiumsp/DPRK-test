@@ -29,7 +29,7 @@ nkoreaTest.text = {
     '<strong>「端」网：</strong><a href="https://theinitium.com/" target="_blank">theinitum.com</a>' +
     '<br />' +
     '<strong>「端」报：</strong>香港发行，逢周五出版' + '<br />' +
-    '<strong>端App (中国內地用戶): Android 和 IOS :</strong>' +
+    '<strong>端App (中国內地用戶): Android 和 iOS :</strong>' +
     '<a href="http://fir.im/initium/?force_cn=true&utm_source=initium&utm_medium=social&utm_campaign=20150806-dprk_test" target="_blank">' +
     'http://fir.im/initium</a>'
 };
