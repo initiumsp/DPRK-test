@@ -14,6 +14,7 @@ nkoreaTest.text = {
     answerLabel: "答案:",
     linkLabel: "新時代的北韓年輕人",
     nextButtonLabel: "下一題！",
+    totalScoreLabel: "你的總分是:",
     scoreDescription: "我在當代朝鮮各科知識模擬測試獲得了",
     shareHint: "分，你們誰能打贏我？",
     fulltextRecommendation: "點擊閱讀脫北青年獨家專訪，看一個社會價值重塑、青年尋找自我的現代朝鮮。文章鏈接：",
@@ -89,7 +90,7 @@ nkoreaTest.survey = [
   {
     "serial": 4,
     "questionTag": "音樂題",
-    "questionText": "以下哪首歌是小學畢業後，一定要唱給領袖金正恩將軍聽的歌曲在當今朝鮮最為流行？",
+    "questionText": "以下哪首歌在當今朝鮮最為流行？",
     "optionContainsImage": false,
     "options": [
       {"optionTag": "A", "optionText":"《將軍與水兵》：我們的船艦！尋找著敬愛的將軍！"},
