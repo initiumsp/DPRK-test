@@ -286,7 +286,9 @@ module.exports = function (grunt) {
                         'scripts/*.js',
                         'styles/*',
                         'index*.html',
-                        'CNAME'
+                        'CNAME',
+                        'thumbnail.jpg',
+                        'meta.json'
                     ]
                 }]
             },
