@@ -1,8 +1,9 @@
 # DPRK-Test
 
-## Setup
+## Install
 
     npm install
+    bower install
    
 ## Build
 
