@@ -286,7 +286,9 @@ module.exports = function (grunt) {
                         'scripts/*.js',
                         'styles/*',
                         'index*.html',
-                        'CNAME'
+                        'CNAME',
+                        'thumbnail.jpg',
+                        'meta.json'
                     ]
                 }]
             },
@@ -383,16 +385,19 @@ module.exports = function (grunt) {
         'clean:dist',
         'react',
         'copy:dist',
+        'uglify'
     ]);
 
-    grunt.registerTask('deploy', [
-        'rsync',
-        'gh-pages'
+    grunt.registerTask('deploy:staging', [
+        'rsync'
+    ]);
+
+    grunt.registerTask('deploy:prod', [
+      'gh-pages'
     ]);
 
     grunt.registerTask('default', [
         'build',
-        'uglify',
         'gh-pages',
         'rsync',
     ]);
